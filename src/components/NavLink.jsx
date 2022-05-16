@@ -4,13 +4,26 @@ const NavLink = (props) => {
   // eslint-disable-next-line react/prop-types
   const { link, name, className } = props;
 
+  const isSelected = () => {
+    if (window.location.pathname === link) {
+      return "text-gray-400 cursor-default";
+    }
+    return "hover:text-lgbtq-pink cursor-pointer";
+  };
+
   return (
     <li
-      className={className + " p-3 w-full hover:text-lgbtq-pink duration-300"}
+      className={
+        className + " p-3 w-full duration-300 select-none " + isSelected()
+      }
+      onClick={() => {
+        console.log(window.location.pathname);
+        if (window.location.pathname !== link) {
+          window.location.href = link;
+        }
+      }}
     >
-      <a className="" href={link}>
-        {name}
-      </a>
+      <span>{name}</span>
     </li>
   );
 };

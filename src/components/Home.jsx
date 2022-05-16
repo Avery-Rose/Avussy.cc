@@ -2,6 +2,7 @@ import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { FaGithub, FaSteam, FaTwitch, FaTwitter } from "react-icons/fa";
 import SocialLink from "./SocialLink";
+import NavBar from "./NavBar";
 
 const Home = () => {
   const socials = [

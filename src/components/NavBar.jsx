@@ -9,6 +9,10 @@ const NavBar = () => {
       name: "Home",
       link: "/",
     },
+    {
+      name: "Error",
+      link: "/404",
+    },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +21,9 @@ const NavBar = () => {
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-blue-dark text-white z-10 scroll">
       <div
-        className="cursor-pointer z-10 hover:text-lgbtq-pink duration-300"
+        className="cursor-pointer z-10 duration-300 hover:text-lgbtq-pink"
         onClick={() => {
-          if (window.location.pathname !== "/") {
-            window.location.href = "/";
-          }
-          console.log(window.location.pathname);
+          window.location.href = "/";
         }}
       >
         <span className="text-4xl select-none">Avussy.cc</span>
@@ -51,7 +52,7 @@ const NavBar = () => {
         className={
           !isOpen
             ? "hidden"
-            : "absolute top-[81px] left-0 w-full h-screen bg-blue-deep-dark flex flex-col items-center"
+            : "absolute top-[81px] left-0 w-full h-screen bg-blue-deep-dark flex flex-col items-center md:hidden"
         }
       >
         <ul className="flex flex-col justify-center items-center w-full select-none">
