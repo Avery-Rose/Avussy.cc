@@ -15,7 +15,6 @@ const SocialLink = (props) => {
       <a
         className="flex items-center hover:text-lgbtq-pink duration-300"
         href={link}
-        target="_blank"
         rel="noopener noreferrer nofollow external"
       >
         {cloneIcon}

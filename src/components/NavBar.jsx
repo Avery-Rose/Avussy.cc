@@ -16,7 +16,15 @@ const NavBar = () => {
 
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-blue-dark text-white z-10 scroll">
-      <div className="cursor-pointer z-10 hover:text-lgbtq-pink duration-300">
+      <div
+        className="cursor-pointer z-10 hover:text-lgbtq-pink duration-300"
+        onClick={() => {
+          if (window.location.pathname !== "/") {
+            window.location.href = "/";
+          }
+          console.log(window.location.pathname);
+        }}
+      >
         <span className="text-4xl select-none">Avussy.cc</span>
       </div>
 
