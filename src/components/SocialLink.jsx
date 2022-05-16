@@ -1,7 +1,7 @@
 import React from "react";
 
 const SocialLink = (props) => {
-  const { icon, link, name, color } = props;
+  const { icon, link, name } = props;
 
   const cloneIcon = React.cloneElement(icon, {
     size: "30",
