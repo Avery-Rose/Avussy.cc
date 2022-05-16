@@ -9,10 +9,6 @@ const NavBar = () => {
       name: "Home",
       link: "/",
     },
-    {
-      name: "Error",
-      link: "/404",
-    },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
