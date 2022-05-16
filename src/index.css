@@ -19,6 +19,11 @@
   --dark-blue: #0a0c2f;
   --t-pink: #ff66f7;
   --t-blue: #66faff;
+  --l-red: #d62900;
+  --l-orange: #ff9b55;
+  --l-white: #ffffff;
+  --l-pink: #d461a6;
+  --l-purple: #a50062;
 }
 
 ::selection {

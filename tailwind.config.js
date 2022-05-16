@@ -15,6 +15,13 @@ module.exports = {
           dark: "var(--dark-blue)",
         },
         lgbtq: {
+          les: {
+            red: "var(--l-red)",
+            orange: "var(--l-orange)",
+            white: "var(--l-white)",
+            pink: "var(--l-pink)",
+            purple: "var(--l-purple)",
+          },
           pink: "var(--t-pink)",
           blue: "var(--t-blue)",
         },

@@ -56,7 +56,7 @@ const Home = () => {
         {/* Title */}
         <div>
           <span className="text-1xl sm:text-2xl text-gray-300">
-            Hi, I&aposm{" "}
+            Hi, I{"'"}m{" "}
           </span>
           <span className="text-4xl sm:text-4xl font-bold text-lgbtq-pink">
             Avery
@@ -64,11 +64,11 @@ const Home = () => {
         </div>
         {/* Subtitle */}
         <h2 className="text-2xl sm:text-2xl font-bold text-[#8892b0]">
-          I&aposm a IT student.
+          I{"'"}m a IT student.
         </h2>
 
         <p className="text-white py-4 max-w[700px]">
-          I&aposm 19 years old and currently wanting to focus on frontend
+          I{"'"}m 19 years old and currently wanting to focus on frontend
           development. This website is going to be one of my projects that I
           plan to work on.
         </p>
