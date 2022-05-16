@@ -55,18 +55,20 @@ const Home = () => {
       <div className="max-w-[950px] mx-auto px-8 flex flex-col justify-center h-full animate-drop">
         {/* Title */}
         <div>
-          <span className="text-1xl sm:text-2xl text-gray-300">Hi, I'm </span>
+          <span className="text-1xl sm:text-2xl text-gray-300">
+            Hi, I&aposm{" "}
+          </span>
           <span className="text-4xl sm:text-4xl font-bold text-lgbtq-pink">
             Avery
           </span>
         </div>
         {/* Subtitle */}
         <h2 className="text-2xl sm:text-2xl font-bold text-[#8892b0]">
-          I'm a IT student.
+          I&aposm a IT student.
         </h2>
 
         <p className="text-white py-4 max-w[700px]">
-          I'm 19 years old and currently wanting to focus on frontend
+          I&aposm 19 years old and currently wanting to focus on frontend
           development. This website is going to be one of my projects that I
           plan to work on.
         </p>

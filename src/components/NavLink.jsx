@@ -1,6 +1,7 @@
 import React from "react";
 
 const NavLink = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { link, name, className } = props;
 
   return (
