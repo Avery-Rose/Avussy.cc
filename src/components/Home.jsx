@@ -45,10 +45,6 @@ const Home = () => {
     });
   };
 
-  function openLink(link) {
-    window.open(link, "_blank");
-  }
-
   return (
     <div
       name="home"
@@ -66,13 +62,13 @@ const Home = () => {
         </div>
         {/* Subtitle */}
         <h2 className="text-2xl sm:text-2xl font-bold text-[#8892b0]">
-          I'm a student.
+          I'm a IT student.
         </h2>
 
         <p className="text-white py-4 max-w[700px]">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint nulla
-          quas corporis fugit libero est aperiam. Blanditiis alias illum, vero
-          laborum et pariatur possimus velit rem ducimus a saepe hic.
+          I'm 19 years old and currently wanting to focus on frontend
+          development. This website is going to be one of my projects that I
+          plan to work on.
         </p>
         <div className="grid grid-cols-2 md:flex md:justify-between">
           {getSocials()}
@@ -80,7 +76,12 @@ const Home = () => {
         <div>
           <button
             className="group flex items-center text-white border-2 px-6 py-3 my-2 hover:bg-lgbtq-pink hover:border-lgbtq-pink select-none duration-300"
-            onClick={openLink("")}
+            onClick={() => {
+              window.open(
+                "https://github.com/Averyyyyyyyy/Avussy.cc",
+                "_blank"
+              );
+            }}
           >
             Website Repo
             <span>

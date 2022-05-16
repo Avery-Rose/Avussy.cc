@@ -14,11 +14,6 @@
   }
 }
 
-::selection {
-  @apply bg-pink-200;
-  @apply text-slate-800;
-}
-
 :root {
   --deep-dark-blue: #07101d;
   --dark-blue: #0a0c2f;
@@ -26,6 +21,10 @@
   --t-blue: #66faff;
 }
 
+::selection {
+  color: white;
+  background: var(--t-pink);
+}
 html {
   scroll-behavior: smooth;
 }
