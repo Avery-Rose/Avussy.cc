@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { BiUpArrow } from "react-icons/bi";
 
 import NavLink from "./NavLink";
 
@@ -9,15 +10,34 @@ const NavBar = () => {
       name: "Home",
       link: "/",
     },
+    {
+      name: "Projects",
+      link: "/projects",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+    },
+    {
+      name: "Error",
+      link: "/404",
+    },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
   const handleNavClick = () => setIsOpen(!isOpen);
 
+  const handleBurgerAnimation = () => {
+    if (!isOpen) {
+      return "rotate-180 ";
+    }
+    return "rotate-0 text-lgbtq-pink";
+  };
+
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-blue-dark text-white z-10 scroll">
+    <div className="select-all fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10 scroll">
       <div
-        className="cursor-pointer z-10 duration-300 hover:text-lgbtq-pink"
+        className="cursor-pointer z-10 duration-300 hover:text-lgbtq-pink px-4"
         onClick={() => {
           window.location.href = "/";
         }}
@@ -34,13 +54,21 @@ const NavBar = () => {
               link={item.link}
               name={item.name}
               className=""
+              handleNavClick={handleNavClick}
             />
           );
         })}
       </ul>
       {/* Hamburger */}
-      <div onClick={handleNavClick} className="md:hidden z-10 py-5 pl-5">
-        {isOpen ? <FaTimes /> : <FaBars />}
+      <div
+        onClick={handleNavClick}
+        className="md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black z-10 h-full w-[80px] flex justify-center items-center duration-300"
+      >
+        <BiUpArrow
+          size={35}
+          className={"duration-300 " + handleBurgerAnimation()}
+        />
+        {/*isOpen ? <FaTimes size="35" /> : <FaBars size="35" />*/}
       </div>
 
       {/* Mobile menu */}
@@ -59,6 +87,7 @@ const NavBar = () => {
                 link={item.link}
                 name={item.name}
                 className="py-6 text-4xl text-center"
+                handleNavClick={handleNavClick}
               />
             );
           })}

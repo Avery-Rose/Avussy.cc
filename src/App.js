@@ -5,17 +5,22 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-
-import HomePage from "./pages/Home";
-import NotFoundPage from "./pages/NotFoundPage";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import NavBar from "./components/NavBar";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <div>
       <Router>
+        <NavBar />
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="404" element={<NotFoundPage />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="404" element={<NotFound />} />
           {/* if not found redirect to 404 page */}
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>

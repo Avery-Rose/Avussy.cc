@@ -1,3 +1,5 @@
+const { FaRegIdBadge } = require("react-icons/fa");
+
 module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -27,6 +29,7 @@ module.exports = {
         },
       },
       animation: {
+        // only pulse the background
         drop: "drop-in 1s",
         slideBackGround: "slide-bg 5s linear infinite",
       },

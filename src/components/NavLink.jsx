@@ -2,7 +2,7 @@ import React from "react";
 
 const NavLink = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { link, name, className } = props;
+  const { link, name, className, handleNavClick } = props;
 
   const isSelected = () => {
     if (window.location.pathname === link) {
@@ -19,6 +19,7 @@ const NavLink = (props) => {
       onClick={() => {
         console.log(window.location.pathname);
         if (window.location.pathname !== link) {
+          handleNavClick();
           window.location.href = link;
         }
       }}

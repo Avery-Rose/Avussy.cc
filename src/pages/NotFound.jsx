@@ -2,7 +2,7 @@ import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { FaGithub, FaSteam, FaTwitch, FaTwitter } from "react-icons/fa";
 import { AiOutlineLoading } from "react-icons/ai";
-import SocialLink from "./SocialLink";
+import SocialLink from "../components/SocialLink";
 
 const NotFound = () => {
   return (

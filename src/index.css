@@ -17,7 +17,7 @@
 :root {
   --deep-dark-blue: #07101d;
   --dark-blue: #0a0c2f;
-  --t-pink: #ff66f7;
+  --t-pink: #ff66ff;
   --t-blue: #66faff;
   --l-red: #d62900;
   --l-orange: #ff9b55;
@@ -30,6 +30,7 @@
   color: white;
   background: var(--t-pink);
 }
+
 html {
   scroll-behavior: smooth;
 }
