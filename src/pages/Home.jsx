@@ -1,8 +1,14 @@
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import { FaGithub, FaSteam, FaTwitch, FaTwitter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaSteam,
+  FaTwitch,
+  FaTwitter,
+  FaInstagram,
+  FaDiscord,
+} from "react-icons/fa";
 import SocialLink from "../components/SocialLink";
-import NavBar from "../components/NavBar";
 
 const Home = () => {
   const socials = [
@@ -30,6 +36,18 @@ const Home = () => {
       icon: <FaTwitter />,
       color: "#1da1f2",
     },
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/cattgirlava/",
+      icon: <FaInstagram />,
+      color: "#e1306c",
+    },
+    {
+      name: "Discord",
+      icon: <FaDiscord />,
+      color: "#7289da",
+      value: "avery#9957",
+    },
   ];
 
   const getSocials = () => {
@@ -41,6 +59,7 @@ const Home = () => {
           link={item.link}
           name={item.name}
           color={item.color}
+          value={item.value}
         />
       );
     });

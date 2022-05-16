@@ -18,10 +18,6 @@ const NavBar = () => {
       name: "Contact",
       link: "/contact",
     },
-    {
-      name: "Error",
-      link: "/404",
-    },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +31,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="select-all fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10 scroll">
+    <div className="select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10 scroll">
       <div
         className="cursor-pointer z-10 duration-300 hover:text-lgbtq-pink px-4"
         onClick={() => {
