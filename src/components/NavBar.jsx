@@ -24,9 +24,9 @@ const NavBar = () => {
 
   const handleBurgerAnimation = () => {
     if (!isOpen) {
-      return "rotate-180 ";
+      return "transform-gpu rotate-180";
     }
-    return "rotate-0 text-lgbtq-pink";
+    return "transform-gpu rotate-0 text-lgbtq-pink";
   };
 
   return (
@@ -59,13 +59,12 @@ const NavBar = () => {
       {/* Hamburger */}
       <div
         onClick={handleNavClick}
-        className="md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black z-10 h-full w-[80px] flex justify-center items-center duration-300"
+        className="md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black hover:text-lgbtq-blue z-10 h-full w-[80px] flex justify-center items-center duration-300"
       >
         <BiUpArrow
           size={35}
           className={"duration-300 " + handleBurgerAnimation()}
         />
-        {/*isOpen ? <FaTimes size="35" /> : <FaBars size="35" />*/}
       </div>
 
       {/* Mobile menu */}
@@ -73,22 +72,24 @@ const NavBar = () => {
         className={
           !isOpen
             ? "hidden"
-            : "absolute top-[81px] left-0 w-full h-screen bg-blue-deep-dark flex flex-col items-center md:hidden"
+            : "absolute top-[81px] left-0 w-full h-screen bg-blue-deep-dark flex flex-col items-center md:hidden opacity-100 duration-300"
         }
       >
-        <ul className="flex flex-col justify-center items-center w-full select-none">
+        {isOpen ? <ul className="flex flex-col justify-center items-center w-full select-none duration-300">
           {nav.map((item, index) => {
-            return (
+              return (
               <NavLink
-                key={index}
-                link={item.link}
-                name={item.name}
-                className="py-6 text-4xl text-center"
-                handleNavClick={handleNavClick}
-              />
-            );
+              key={index}
+              link={item.link}
+              name={item.name}
+              className={"py-6 text-4xl text-center animate-fadeIn delay-1000 duration-300"}
+              handleNavClick={handleNavClick}
+                />
+              );
+            
           })}
-        </ul>
+        </ul> : null}
+        
       </div>
 
       <div className="w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround"></div>

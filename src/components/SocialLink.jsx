@@ -49,7 +49,7 @@ const SocialLink = (props) => {
           </span>
           <Notification
             value="Copied!"
-            className={showToolTip ? "opacity-100" : "opacity-0 translate-y-16"}
+            className={showToolTip ? "transform-gpu opacity-100" : "transform-gpu opacity-0 translate-y-16"}
           />
         </div>
       )}
