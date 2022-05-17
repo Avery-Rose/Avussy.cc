@@ -7,10 +7,16 @@ import {
   FaTwitter,
   FaInstagram,
   FaDiscord,
+  FaTags,
 } from "react-icons/fa";
 import SocialLink from "./components/SocialLink";
+import Container from "../../components/Container";
 
 const Home = () => {
+  return <Container element={HomeData()} />;
+};
+
+const HomeData = () => {
   const socials = [
     {
       name: "Github",
@@ -66,49 +72,38 @@ const Home = () => {
   };
 
   return (
-    <div
-      name="home"
-      className="w-full h-screen bg-blue-deep-dark text-white min-h-[500px]"
-      id="main"
-    >
-      {/* Container */}
-      <div className="max-w-[950px] mx-auto px-8 flex flex-col justify-center h-full animate-drop">
-        {/* Text Content */}
-        <div className="flex flex-col">
-          <div>
-            <span className="text-1xl sm:text-2xl text-white">
-              Hello, my name is{" "}
-            </span>
-            <span className="text-4xl sm:text-4xl font-bold text-lgbtq-pink">
-              Avery
-            </span>
-          </div>
-          <span className="text-white py-4 max-w[700px]">
-            I{"'"}m 19 years of age. I like to code and plan to go into the
-            field. Currently I am focusing on frontend development and design.
-            This website is going to be a project that I can practice on.
+    <div>
+      <div className="flex flex-col">
+        <div>
+          <span className="text-1xl sm:text-2xl text-white">
+            Hello, my name is{" "}
+          </span>
+          <span className="text-4xl sm:text-4xl font-bold text-lgbtq-pink">
+            Avery{" "}
           </span>
         </div>
+        <span className="text-white py-4 max-w[700px]">
+          I{"'"}m 19 years of age. I like to code and plan to go into the field.
+          Currently I am focusing on frontend development and design. This
+          website is going to be a project that I can practice on.
+        </span>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-between">
-          {getSocials()}
-        </div>
-        <div className="max-w-fit max-h-fit my-2">
-          <button
-            className="group flex items-center text-white border-2 px-6 py-3 hover:border-lgbtq-pink select-none hover:bg-[#ff66f73c] duration-300"
-            onClick={() => {
-              window.open(
-                "https://github.com/Averyyyyyyyy/Avussy.cc",
-                "_blank"
-              );
-            }}
-          >
-            <span className="">Website Repo</span>
-            <span>
-              <HiArrowNarrowRight className="ml-2" />
-            </span>
-          </button>
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+        {getSocials()}
+      </div>
+      <div className="max-w-fit max-h-fit my-2">
+        <button
+          className="group flex items-center text-white border-2 px-6 py-3 hover:border-lgbtq-pink select-none hover:bg-[#ff66f73c] duration-300"
+          onClick={() => {
+            window.open("https://github.com/Averyyyyyyyy/Avussy.cc", "_blank");
+          }}
+        >
+          <span className="">Website Repo</span>
+          <span>
+            <HiArrowNarrowRight className="ml-2" />
+          </span>
+        </button>
       </div>
     </div>
   );

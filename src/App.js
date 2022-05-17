@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Projects from "./pages/Projects/Projects";
+import Projects from "./pages/projects/Projects";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import NavBar from "./components/NavBar";
