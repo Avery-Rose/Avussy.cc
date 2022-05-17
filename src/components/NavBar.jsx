@@ -33,12 +33,14 @@ const NavBar = () => {
   return (
     <div className="select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10 scroll">
       <div
-        className="cursor-pointer z-10 duration-300 hover:text-lgbtq-pink px-4"
+        className="group cursor-pointer z-10  px-4"
         onClick={() => {
           window.location.href = "/";
         }}
       >
-        <span className="text-4xl select-none">Avussy.cc</span>
+        <span className="text-4xl select-none duration-300 group-hover:text-lgbtq-pink">
+          Avussy.cc
+        </span>
       </div>
 
       {/* menu */}

@@ -8,14 +8,12 @@ const NavLink = (props) => {
     if (window.location.pathname === link) {
       return "text-gray-400 cursor-default";
     }
-    return "hover:text-lgbtq-pink cursor-pointer";
+    return "hover:text-lgbtq-pink cursor-pointer duration-300";
   };
 
   return (
     <li
-      className={
-        className + " p-3 w-full duration-300 select-none " + isSelected()
-      }
+      className={className + " p-3 w-full select-none " + isSelected()}
       onClick={() => {
         console.log(window.location.pathname);
         if (window.location.pathname !== link) {
