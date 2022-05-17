@@ -8,7 +8,7 @@ import {
   FaInstagram,
   FaDiscord,
 } from "react-icons/fa";
-import SocialLink from "../components/SocialLink";
+import SocialLink from "./components/SocialLink";
 
 const Home = () => {
   const socials = [

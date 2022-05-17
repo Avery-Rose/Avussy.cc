@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Notification from "./Notification";
+import Notification from "../../../components/Notification";
 
 const SocialLink = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -47,12 +47,12 @@ const SocialLink = (props) => {
             {cloneIcon}
             <span className="">{name}</span>
           </span>
-          <Notification
-            value="Copied!"
-            className={showToolTip ? "opacity-100" : "opacity-0 translate-y-16"}
-          />
         </div>
       )}
+      <Notification
+        value="Copied!"
+        className={showToolTip ? "opacity-100" : "opacity-0 translate-y-16"}
+      />
     </div>
   );
 };
