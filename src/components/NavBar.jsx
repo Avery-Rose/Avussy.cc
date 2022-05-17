@@ -71,25 +71,25 @@ const NavBar = () => {
       <div
         className={
           !isOpen
-            ? "hidden"
-            : "absolute top-[81px] left-0 w-full h-screen bg-blue-deep-dark flex flex-col items-center md:hidden opacity-100 duration-300"
+            ? "hidden "
+            : "absolute overflow-auto top-[81px] z-10 left-0 w-full h-[calc(100vh-81px)] bg-blue-deep-dark flex flex-col items-center md:hidden"
         }
       >
-        {isOpen ? <ul className="flex flex-col justify-center items-center w-full select-none duration-300">
-          {nav.map((item, index) => {
+        {isOpen ? (
+          <ul className="flex flex-col justify-center items-center w-full select-none">
+            {nav.map((item, index) => {
               return (
-              <NavLink
-              key={index}
-              link={item.link}
-              name={item.name}
-              className={"py-6 text-4xl text-center animate-fadeIn delay-1000 duration-300"}
-              handleNavClick={handleNavClick}
+                <NavLink
+                  key={index}
+                  link={item.link}
+                  name={item.name}
+                  className={"py-6 text-4xl text-center animate-fadeIn"}
+                  handleNavClick={handleNavClick}
                 />
               );
-            
-          })}
-        </ul> : null}
-        
+            })}
+          </ul>
+        ) : null}
       </div>
 
       <div className="w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround"></div>
