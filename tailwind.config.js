@@ -32,11 +32,20 @@ module.exports = {
         // only pulse the background
         drop: "drop-in 1s",
         slideBackGround: "slide-bg 5s linear infinite",
+        fadeIn: "fade-in 1s",
       },
       keyframes: {
         "slide-bg": {
           to: {
             backgroundPosition: "200% center",
+          },
+        },
+        "fade-in": {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
           },
         },
         "drop-in": {
