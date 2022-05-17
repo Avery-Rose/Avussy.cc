@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { BiUpArrow } from "react-icons/bi";
 
 import NavLink from "./NavLink";
