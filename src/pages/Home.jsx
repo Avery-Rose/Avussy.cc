@@ -90,7 +90,7 @@ const Home = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:flex md:justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-between">
           {getSocials()}
         </div>
         <div className="max-w-fit max-h-fit my-2">
