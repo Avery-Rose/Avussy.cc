@@ -94,7 +94,7 @@ const HomeData = () => {
       </div>
       <div className="max-w-fit max-h-fit my-2">
         <button
-          className="group flex items-center text-white border-2 px-6 py-3 hover:border-lgbtq-pink select-none hover:bg-[#ff66f73c] duration-300"
+          className="group flex items-center text-white border-2 px-6 py-3 hover:border-lgbtq-pink select-none hover:bg-[#ff66f73c] duration-300 active:bg-[#ff66f76c]"
           onClick={() => {
             window.open("https://github.com/Averyyyyyyyy/Avussy.cc", "_blank");
           }}
