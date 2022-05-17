@@ -7,7 +7,7 @@ const Notification = (props) => {
   return (
     <div
       className={
-        "fixed translate-x-[-50%] text-2xl rounded-3xl p-5 bottom-10 left-[50%] flex items-center justify-center duration-300 " +
+        "fixed translate-x-[-50%] text-2xl rounded-3xl p-5 bottom-2 md:bottom-5 lg:bottom-10 left-[50%] flex items-center justify-center duration-300 " +
         className
       }
     >

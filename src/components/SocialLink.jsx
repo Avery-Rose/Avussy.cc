@@ -27,8 +27,8 @@ const SocialLink = (props) => {
 
   const handleCopyClick = () => {
     if (!showToolTip) {
-      setShowToolTip(true);
       copyValue(value);
+      setShowToolTip(true);
       setTimeout(() => {
         setShowToolTip(false);
       }, 2000);
