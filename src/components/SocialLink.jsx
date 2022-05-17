@@ -14,15 +14,7 @@ const SocialLink = (props) => {
   const [showToolTip, setShowToolTip] = useState(false);
 
   const copyValue = (value) => {
-    /*let $temp = document.createElement("input");
-    document.body.appendChild($temp);
-    $temp.value = value;
-    $temp.select();
-    $temp.setSelectionRange(0, 99999);*/
-
     navigator.clipboard.writeText(value);
-    /*console.log($temp.value);
-    document.body.removeChild($temp);*/
   };
 
   const handleCopyClick = () => {
