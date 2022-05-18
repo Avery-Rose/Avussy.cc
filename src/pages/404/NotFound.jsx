@@ -5,15 +5,16 @@ const NotFound = () => {
   return (
     <Container
       css={{
-        display: "flex",
-        flexDirection: "column",
+        position: "absolute",
+        padding: "0",
+        margin: "0",
+        top: "80px",
         alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
-        width: "100vw",
-        minHeight: "500px",
+        height: "calc(100vh - 80px)",
+        minWidth: "100%",
       }}
-      className="animate-fadeIn"
+      className="animate-fadeIn overflow-hidden"
     >
       <NotFoundData />
     </Container>
@@ -22,7 +23,7 @@ const NotFound = () => {
 
 const NotFoundData = () => {
   return (
-    <div className="flex flex-col justify-center items-center text-center">
+    <div className="flex flex-col w-full h-full justify-center items-center">
       <h1 className="text-7xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-t from-lgbtq-pink to-lgbtq-blue animate-pulse">
         404
       </h1>
