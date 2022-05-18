@@ -26,15 +26,13 @@ const darkTheme = createTheme({
       background: "#07101d",
       backgroundSecondary: "#0a0c2f",
       link: "#fff",
-    },
-    fonts: {
-      sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
-      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono'",
+      primaryInput: "#fff",
+      primaryLightContrast: "#fff",
     },
   },
 });
 
-const lightTheme = createTheme({
+/*const lightTheme = createTheme({
   type: "light",
   theme: {
     colors: {
@@ -45,7 +43,7 @@ const lightTheme = createTheme({
       background: "#74A2E1",
     },
   },
-});
+});*/
 
 function App() {
   return (

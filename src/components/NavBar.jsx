@@ -27,6 +27,7 @@ const NavBar = () => {
   }
 
   const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 768);
+  // eslint-disable-next-line no-unused-vars
   const [windowDimentions, setWindowDimentions] = useState(
     getWindowDimensions()
   );
