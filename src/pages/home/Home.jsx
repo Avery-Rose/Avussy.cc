@@ -102,7 +102,9 @@ const HomeData = () => {
         </span>
       </div>
 
-      <Grid.Container gap={2}>{getSocials()}</Grid.Container>
+      <Grid.Container gap={2} justify="center">
+        {getSocials()}
+      </Grid.Container>
 
       {/*<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-evenly items-center">
         {getSocials()}
