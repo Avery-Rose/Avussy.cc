@@ -1,6 +1,5 @@
 import React from "react";
-
-import Container from "../../components/Container";
+import { Container } from "@nextui-org/react";
 
 const ContactData = () => {
   return (
@@ -15,7 +14,22 @@ const ContactData = () => {
 };
 
 const Contact = () => {
-  return <Container element={<ContactData />} />;
+  return (
+    <Container
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        width: "100vw",
+        minHeight: "500px",
+      }}
+      className="animate-fadeIn"
+    >
+      <ContactData />
+    </Container>
+  );
 };
 
 export default Contact;

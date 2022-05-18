@@ -1,28 +1,25 @@
 import React from "react";
 
+import { Link } from "@nextui-org/react";
+
 const NavLink = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { link, name, className, handleNavClick } = props;
+  const { link, name } = props;
 
   const isSelected = () => {
-    if (window.location.pathname === link) {
-      return "text-gray-400 cursor-default";
-    }
-    return "hover:text-lgbtq-pink cursor-pointer duration-300";
+    return window.location.pathname === link;
   };
 
   return (
-    <li
-      className={className + " p-3 w-full select-none " + isSelected()}
-      onClick={() => {
-        console.log(window.location.pathname);
-        if (window.location.pathname !== link) {
-          handleNavClick();
-          window.location.href = link;
-        }
-      }}
-    >
-      <span>{name}</span>
+    <li className=" h-10 flex justify-center items-center">
+      <Link
+        href={link}
+        color={isSelected() ? "primary" : "default"}
+        css={{ size: "fit-content" }}
+        className=""
+      >
+        {name}
+      </Link>
     </li>
   );
 };

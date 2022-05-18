@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, componentDidMount, useEffect } from "react";
 import { BiUpArrow } from "react-icons/bi";
+import { Container, Text, Link, Col, Row } from "@nextui-org/react";
 
 import NavLink from "./NavLink";
 
@@ -18,6 +19,38 @@ const NavBar = () => {
       link: "/contact",
     },
   ];
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  }
+
+  const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 768);
+  const [windowDimentions, setWindowDimentions] = useState(
+    getWindowDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimentions(getWindowDimensions());
+      if (getWindowDimensions().width >= 768) {
+        setIsMobile(false);
+        setIsOpen(false);
+      } else {
+        setIsMobile(true);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isSelected = (link) => {
+    return window.location.pathname === link;
+  };
 
   const [isOpen, setIsOpen] = useState(false);
   const handleNavClick = () => setIsOpen(!isOpen);
@@ -43,19 +76,44 @@ const NavBar = () => {
       </div>
 
       {/* menu */}
-      <ul className="hidden md:flex justify-items-center align-middle h-full items-center">
-        {nav.map((item, index) => {
-          return (
-            <NavLink
-              key={index}
-              link={item.link}
-              name={item.name}
-              className=""
-              handleNavClick={handleNavClick}
-            />
-          );
-        })}
-      </ul>
+      {isMobile ? null : (
+        <Container>
+          <Row
+            css={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "end",
+              alignItems: "center",
+            }}
+          >
+            {nav.map((item, index) => {
+              return (
+                <Col
+                  css={{
+                    display: "flex",
+                    width: "fit-content",
+                    justifyContent: "end",
+                    alignItems: "end",
+                  }}
+                >
+                  <Link
+                    key={index}
+                    href={item.link}
+                    block
+                    color={isSelected(item.link) ? "primary" : "default"}
+                    css={{
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      )}
+
       {/* Hamburger */}
       <div
         onClick={handleNavClick}
@@ -68,29 +126,59 @@ const NavBar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={
-          !isOpen
-            ? "hidden "
-            : "absolute overflow-auto top-[81px] z-10 left-0 w-full h-[calc(100vh-81px)] bg-blue-deep-dark flex flex-col items-center md:hidden"
-        }
-      >
-        {isOpen ? (
-          <ul className="flex flex-col justify-center items-center w-full select-none">
+      {isOpen ? (
+        <Container
+          justify="center"
+          alignContent="center"
+          css={{
+            position: "absolute",
+            top: "81px",
+            left: "0",
+            width: "100vw",
+            flexDirection: "column",
+            background: "black",
+            zIndex: "10",
+            alignItems: "center",
+            justifyContent: "evenly",
+            height: "calc(100vh - 81px)",
+            minWidth: "100vw",
+            maxWidth: "100vw",
+            m: "0",
+            p: "0",
+            display: "flex" || "none",
+            overflowY: "scroll",
+            overflowX: "hidden",
+          }}
+          className="md: hidden"
+        >
+          <Col
+            css={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+            }}
+          >
             {nav.map((item, index) => {
               return (
-                <NavLink
-                  key={index}
-                  link={item.link}
-                  name={item.name}
-                  className={"py-6 text-4xl text-center animate-fadeIn"}
-                  handleNavClick={handleNavClick}
-                />
+                <Row justify="center">
+                  <Link
+                    key={index}
+                    href={item.link}
+                    block
+                    color={isSelected(item.link) ? "primary" : "default"}
+                    css={{
+                      textAlign: "center",
+                      fontSize: "3rem",
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </Row>
               );
             })}
-          </ul>
-        ) : null}
-      </div>
+          </Col>
+        </Container>
+      ) : null}
 
       <div className="w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround z-10 "></div>
     </div>
