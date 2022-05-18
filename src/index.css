@@ -28,7 +28,6 @@
 
 ::selection {
   color: white;
-  background: #ff66ff50;
 }
 
 html {
@@ -36,15 +35,17 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  background-color: var(--dark-blue);
+  width: 2px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--t-blue);
-  border-radius: 1rem;
+  /* 
+    Gradient scrolling
+  */
+  background-color: var(--t-pink);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--deep-dark-blue);
+  background-color: var(--dark-blue);
 }
