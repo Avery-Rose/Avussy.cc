@@ -1,8 +1,6 @@
-import React, { useState, componentDidMount, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BiUpArrow } from "react-icons/bi";
-import { Container, Text, Link, Col, Row } from "@nextui-org/react";
-
-import NavLink from "./NavLink";
+import { Container, Link, Col, Row } from "@nextui-org/react";
 
 const NavBar = () => {
   const nav = [

@@ -6,7 +6,7 @@ import { Button, Grid, Text, Popover, Tooltip } from "@nextui-org/react";
 
 const SocialLink = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { icon, link, name, value, color } = props;
+  const { icon, link, name, value } = props;
 
   const [isDisabled, setIsDisabled] = useState(false);
 
