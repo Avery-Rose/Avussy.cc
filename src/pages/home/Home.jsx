@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import SocialLink from "./components/SocialLink";
 
-import { Grid, Container } from "@nextui-org/react";
+import { Grid, Container, Spacer } from "@nextui-org/react";
 const Home = () => {
   return (
     <Container
@@ -101,11 +101,12 @@ const HomeData = () => {
             I{"'"}m 19 years of age. I like to code and plan to go into the
             field. Currently I am focusing on frontend development and design.
             This website is going to be a project that I can practice on.
+            <Spacer />
+            <Grid.Container gap={2} justify="center">
+              {getSocials()}
+            </Grid.Container>
           </span>
         </div>
-        <Grid.Container gap={2} justify="center">
-          {getSocials()}
-        </Grid.Container>
       </div>
 
       {/*<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-evenly items-center">
