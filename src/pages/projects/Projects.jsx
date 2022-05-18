@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../../components/Container";
+import { Container } from "@nextui-org/react";
 
 const ProjectsData = () => {
   return (
@@ -14,7 +14,22 @@ const ProjectsData = () => {
 };
 
 const Projects = () => {
-  return <Container element={<ProjectsData />} />;
+  return (
+    <Container
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        width: "100vw",
+        minHeight: "500px",
+      }}
+      className="animate-fadeIn"
+    >
+      <ProjectsData />
+    </Container>
+  );
 };
 
 export default Projects;

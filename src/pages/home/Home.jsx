@@ -1,5 +1,4 @@
 import React from "react";
-import { HiArrowNarrowRight } from "react-icons/hi";
 import {
   FaGithub,
   FaSteam,
@@ -7,13 +6,27 @@ import {
   FaTwitter,
   FaInstagram,
   FaDiscord,
-  FaTags,
 } from "react-icons/fa";
 import SocialLink from "./components/SocialLink";
-import Container from "../../components/Container";
 
+import { Grid, Container } from "@nextui-org/react";
 const Home = () => {
-  return <Container element={HomeData()} />;
+  return (
+    <Container
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        width: "100vw",
+        minHeight: "600px",
+      }}
+      className="animate-fadeIn"
+    >
+      <HomeData />
+    </Container>
+  );
 };
 
 const HomeData = () => {
@@ -89,22 +102,11 @@ const HomeData = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+      <Grid.Container gap={2}>{getSocials()}</Grid.Container>
+
+      {/*<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-evenly items-center">
         {getSocials()}
-      </div>
-      <div className="max-w-fit max-h-fit my-2">
-        <button
-          className="group flex items-center text-white border-2 px-6 py-3 hover:border-lgbtq-pink select-none hover:bg-[#ff66f73c] duration-300 active:bg-[#ff66f76c]"
-          onClick={() => {
-            window.open("https://github.com/Averyyyyyyyy/Avussy.cc", "_blank");
-          }}
-        >
-          <span className="">Website Repo</span>
-          <span>
-            <HiArrowNarrowRight className="ml-2" />
-          </span>
-        </button>
-      </div>
+  </div>*/}
     </div>
   );
 };

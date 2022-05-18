@@ -1,8 +1,23 @@
 import React from "react";
-import Container from "../../components/Container";
+import { Container } from "@nextui-org/react";
 
 const NotFound = () => {
-  return <Container element={<NotFoundData />} />;
+  return (
+    <Container
+      css={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        width: "100vw",
+        minHeight: "500px",
+      }}
+      className="animate-fadeIn"
+    >
+      <NotFoundData />
+    </Container>
+  );
 };
 
 const NotFoundData = () => {
