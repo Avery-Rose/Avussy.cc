@@ -41,7 +41,7 @@ const SocialLink = (props) => {
           icon={cloneIcon}
           color={"primary"}
           onPress={() => {
-            window.open(link, "_self");
+            window.open(link, "_blank");
           }}
           css={{ zIndex: 1 }}
         >
