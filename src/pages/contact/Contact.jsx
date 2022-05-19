@@ -39,72 +39,64 @@ const ContactData = () => {
 
   return (
     <Container
+      fluid
       css={{
-        padding: "5rem",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "70%",
       }}
+      className="p-5"
+      sm
     >
-      <Container
-        css={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Text h1>Contact</Text>
-        <Spacer y={2} />
+      <Text h1>Contact</Text>
+      <Spacer y={2} />
 
-        <Input
-          clearable
-          underlined
-          labelPlaceholder="Name"
-          status={false ? "error" : "primary"}
-          required
-        ></Input>
-        <Spacer y={2} />
-        <Input
-          {...bindings}
-          clearable
-          shadow
-          underlined
-          onClearClick={reset}
-          status={emailHelper.color || "primary"}
-          helperText={emailHelper.text}
-          type="email"
-          labelPlaceholder="Email"
-          required
-        ></Input>
+      <Input
+        clearable
+        underlined
+        labelPlaceholder="Name"
+        status={false ? "error" : "primary"}
+        required
+      ></Input>
+      <Spacer y={2} />
+      <Input
+        {...bindings}
+        clearable
+        shadow
+        underlined
+        onClearClick={reset}
+        status={emailHelper.color || "primary"}
+        helperText={emailHelper.text}
+        type="email"
+        labelPlaceholder="Email"
+        required
+      ></Input>
 
-        <Spacer y={3} />
-        <Textarea
-          width="100%"
-          height="10rem"
-          labelPlaceholder="Type Message."
-          color="primary"
-          bordered
-          required
-          rows={5}
-        ></Textarea>
-        <Spacer y={2} />
-        <div className="w-[40%]">
-          <Button
-            rounded
-            css={{ width: "100%" }}
-            disabled={btnIsDisabled}
-            onClick={() => {
-              setBtnIsDisabled(true);
-              setButtonText(
-                <Loading color="currentColor" type="points-opacity" />
-              );
-            }}
-          >
-            {buttonText}
-          </Button>
-        </div>
-      </Container>
+      <Spacer y={3} />
+      <Textarea
+        width="100%"
+        height="10rem"
+        labelPlaceholder="Type Message."
+        color="primary"
+        bordered
+        required
+        rows={5}
+      ></Textarea>
+      <Spacer y={2} />
+      <div className="">
+        <Button
+          rounded
+          css={{ width: "100%" }}
+          disabled={btnIsDisabled}
+          onClick={() => {
+            setBtnIsDisabled(true);
+            setButtonText(
+              <Loading color="currentColor" type="points-opacity" />
+            );
+          }}
+        >
+          {buttonText}
+        </Button>
+      </div>
     </Container>
   );
 };
@@ -122,7 +114,7 @@ const Contact = () => {
         height: "calc(100vh - 80px)",
         minWidth: "100%",
       }}
-      className="animate-fadeIn overflow-hidden"
+      className="animate-fadeIn overflow-scroll"
     >
       <ContactData />
     </Container>
