@@ -40,18 +40,18 @@ const ContactData = () => {
   return (
     <Container
       css={{
-        padding: "5rem",
+        paddingTop: "5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        width: "70%",
       }}
     >
       <Container
         css={{
           display: "flex",
           flexDirection: "column",
+          width: "70%",
         }}
       >
         <Text h1>Contact</Text>
@@ -89,7 +89,7 @@ const ContactData = () => {
           rows={5}
         ></Textarea>
         <Spacer y={2} />
-        <div className="w-[40%]">
+        <div className="">
           <Button
             rounded
             css={{ width: "100%" }}

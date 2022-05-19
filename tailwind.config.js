@@ -30,7 +30,11 @@ module.exports = {
       },
       animation: {
         // only pulse the background
-        drop: "drop-in 1s",
+
+        drop: "drop-in 1s ease-in-out",
+        // go fast and slow
+        dropFade: "drop-in-fade 1s ease-in-out",
+        sildeUpFade: "slide-up-fade 1s ease-in-out",
         slideBackGround: "slide-bg 5s linear infinite",
         fadeIn: "fade-in 1s",
       },
@@ -48,16 +52,36 @@ module.exports = {
             opacity: 1,
           },
         },
-        "drop-in": {
-          "0%": {
-            transform: "translateY(-100%) scale(0)",
+        "fade-in-blur": {
+          from: {
             opacity: 0,
+            filter: "blur(10px)",
+          },
+          to: {
+            opacity: 1,
+            filter: "blur(10px)",
+          },
+        },
+        "slide-up-fade": {
+          from: {
+            opacity: 0,
+            transform: "translateY(10px)",
+          },
+          to: {
+            opacity: 1,
+            transform: "translateY(0px)",
+          },
+        },
+        "drop-in-fade": {
+          "0%": {
+            transform: "translateY(-100%)",
+            backdropFilter: "blur(0px)",
           },
           "100%": {
-            transform: "translate(0,0) scale(1)",
-            "-webkit-transform": "translate(0,0) scale(1)",
-            "-ms-transform": "translate(0,0) scale(1)",
-            opacity: 1,
+            transform: "translate(0,0)",
+            "-webkit-transform": "translate(0,0)",
+            "-ms-transform": "translate(0,0)",
+            backdropFilter: "blur(10px)",
           },
         },
       },
