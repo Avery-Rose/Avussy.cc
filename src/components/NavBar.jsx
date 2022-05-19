@@ -62,8 +62,8 @@ const NavBar = () => {
   };
 
   return (
-    <div>
-      <div className="select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10 scroll">
+    <div className="overflow-hidden">
+      <div className="select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10">
         <div
           className="group cursor-pointer z-10  px-4"
           onClick={() => {
@@ -140,7 +140,7 @@ const NavBar = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "evenly",
-            height: "calc(100vh - 81px)",
+            height: "calc(90vh)",
             minWidth: "100vw",
             maxWidth: "100vw",
             m: "0",
@@ -154,7 +154,7 @@ const NavBar = () => {
               "linear-gradient(to bottom, rgb(0,0,0, 1), rgb(0,0,0,0.6))",
             zIndex: "8",
           }}
-          className="md:hidden"
+          className="md:hidden overflow-scroll"
         >
           <Col
             css={{
