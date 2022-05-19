@@ -22,8 +22,9 @@ const Home = () => {
         justifyContent: "center",
         height: "calc(100vh - 80px)",
         minWidth: "100%",
+        overflow: "scroll",
       }}
-      className="animate-fadeIn overflow-hidden"
+      className="animate-fadeIn"
     >
       <HomeData />
     </Container>
@@ -86,7 +87,7 @@ const HomeData = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full w-full overflow-y-auto overflow-x-hidden p-10">
+    <div className="flex flex-col justify-center items-center h-fit md:h-full w-full p-10">
       <div className="max-w-8xl">
         <div className="flex flex-col justify-center">
           <div>
