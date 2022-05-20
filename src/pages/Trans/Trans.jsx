@@ -180,9 +180,9 @@ const TransData = () => {
                     height={"360"}
                     width={"640"}
                     allowFullScreen={true}
-                    frameborder="1"
+                    frameBorder="1"
                     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowfullscreen
+                    allowFullScreen
                     style={{
                       maxWidth: "calc(1000% / 9)",
                     }}

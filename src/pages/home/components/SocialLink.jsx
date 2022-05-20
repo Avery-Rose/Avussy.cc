@@ -103,7 +103,7 @@ const SocialLink = (props) => {
 
   return <Grid>{component()}</Grid>;
 
-  /*const cloneIcon = React.cloneElement(icon, {
+  /* const cloneIcon = React.cloneElement(icon, {
     size: "30",
     className:
       "text-white h-[60px] w-[60px] p-3 hover:text-lgbtq-pink duration-300",
@@ -123,9 +123,9 @@ const SocialLink = (props) => {
         setShowToolTip(false);
       }, 2000);
     }
-  };*/
+  }; */
 
-  /*return (
+  /* return (
     <div className="w-full select-none flex justify-center items-center">
       {link ? (
         <a
@@ -150,7 +150,7 @@ const SocialLink = (props) => {
         className={showToolTip ? "opacity-100" : "opacity-0 translate-y-16"}
       />
     </div>
-  );*/
+  ); */
 };
 
 export default SocialLink;
