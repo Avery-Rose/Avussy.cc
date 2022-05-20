@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BiUpArrow } from "react-icons/bi";
-import { Container, Link, Col, Row } from "@nextui-org/react";
+import { Container, Link, Col, Row, Text } from "@nextui-org/react";
 
 const NavBar = () => {
   const nav = [
@@ -9,12 +9,8 @@ const NavBar = () => {
       link: "/",
     },
     {
-      name: "Projects",
-      link: "/projects",
-    },
-    {
-      name: "Contact",
-      link: "/contact",
+      name: "Trans Guide",
+      link: "/trans",
     },
   ];
 
@@ -70,9 +66,15 @@ const NavBar = () => {
             window.location.href = "/";
           }}
         >
-          <span className="text-4xl select-none duration-300 group-hover:text-lgbtq-pink">
+          <Text
+            h2
+            css={{
+              userSelect: "none",
+            }}
+            className="duration-300 hover:text-lgbtq-pink"
+          >
             Avussy.cc
-          </span>
+          </Text>
         </div>
 
         {/* menu */}
@@ -100,7 +102,7 @@ const NavBar = () => {
                       key={index}
                       href={item.link}
                       block
-                      color={isSelected(item.link) ? "primary" : "default"}
+                      color={isSelected(item.link) ? "primary" : "text"}
                       css={{
                         fontSize: "1rem",
                       }}
@@ -170,7 +172,7 @@ const NavBar = () => {
                     key={index}
                     href={item.link}
                     block
-                    color={isSelected(item.link) ? "primary" : "default"}
+                    color={isSelected(item.link) ? "primary" : "text"}
                     css={{
                       textAlign: "center",
                       fontSize: "3rem",
