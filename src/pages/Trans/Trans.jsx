@@ -55,18 +55,18 @@ const TransData = () => {
               >
                 <Grid>
                   <ol>
-                    <li>
+                    <li style={{ cursor: "text" }}>
                       <Text>
                         Find a toothbrush that you mostlikley have laying around
                         somewheres in your home.
                       </Text>
                     </li>
-                    <li>
+                    <li style={{ cursor: "text" }}>
                       <Text>
                         Check the bristles and make sure they are tough.
                       </Text>
                     </li>
-                    <li>
+                    <li style={{ cursor: "text" }}>
                       <Text>
                         Now take the toothbrush and brush the inside of your
                         rectum
@@ -76,12 +76,12 @@ const TransData = () => {
                         actually our goal for today.
                       </Text>
                     </li>
-                    <li>
+                    <li style={{ cursor: "text" }}>
                       <Text>
                         Now stop the bleeding by inserting a tampon in your ass.
                       </Text>
                     </li>
-                    <li>
+                    <li style={{ cursor: "text" }}>
                       <Text>
                         Reapeat step 1-4 for <Text b>3 days</Text>
                       </Text>
