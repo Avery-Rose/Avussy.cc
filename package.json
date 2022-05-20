@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/cli": "^8.2.0",
+    "@aws-amplify/ui-react": "^2.18.1",
     "@nextui-org/react": "^1.0.0-beta.7",
+    "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "aws-amplify": "^4.3.22",
     "eslint": ">=5.16.0",
     "global": "^4.4.0",
     "react": "^18.1.0",

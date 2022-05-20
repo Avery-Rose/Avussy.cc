@@ -1,8 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { BiUpArrow } from "react-icons/bi";
-import { Container, Link, Col, Row, Text } from "@nextui-org/react";
+import { BiUpArrow, BiUserCircle } from "react-icons/bi";
+import { Container, Link, Col, Row, Text, Spacer } from "@nextui-org/react";
 
-const NavBar = () => {
+const Account = (props) => {
+  const { user, handleLogin, css } = props;
+  useEffect(() => {
+    handleLogin({}, (res) => {
+      if (!res.success) {
+        console.log(res.message);
+      }
+    });
+  }, [user, handleLogin]);
+  return user ? (
+    <Link key={"logout"} href={"/logout"} color={"error"} css={css}>
+      Logout
+    </Link>
+  ) : (
+    <Link key={"login"} href={"/login"} color={"text"} css={css}>
+      Login
+    </Link>
+  );
+};
+
+const AccountMenu = (props) => {
+  return (
+    <Container>
+      <BiUserCircle />
+    </Container>
+  );
+};
+
+const NavBar = (props) => {
+  const { user, handleLogin } = props;
   const nav = [
     {
       name: "Home",
@@ -38,7 +67,6 @@ const NavBar = () => {
         setIsMobile(true);
       }
     }
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -91,6 +119,7 @@ const NavBar = () => {
               {nav.map((item, index) => {
                 return (
                   <Col
+                    key={index}
                     css={{
                       display: "flex",
                       width: "fit-content",
@@ -112,6 +141,45 @@ const NavBar = () => {
                   </Col>
                 );
               })}
+              {user ? (
+                <Col
+                  key={"account"}
+                  css={{
+                    display: "flex",
+                    width: "fit-content",
+                    justifyContent: "end",
+                    alignItems: "end",
+                  }}
+                >
+                  <Link
+                    key={"account"}
+                    href={"/account"}
+                    block
+                    color={isSelected("/account") ? "primary" : "text"}
+                    css={{
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {"Account"}
+                  </Link>
+                </Col>
+              ) : (
+                <></>
+              )}
+              <Col
+                css={{
+                  display: "flex",
+                  width: "fit-content",
+                  justifyContent: "end",
+                  alignItems: "end",
+                }}
+              >
+                <Account
+                  user={user}
+                  handleLogin={handleLogin}
+                  css={{ fontSize: "1rem" }}
+                />
+              </Col>
             </Row>
           </Container>
         )}
@@ -167,7 +235,7 @@ const NavBar = () => {
           >
             {nav.map((item, index) => {
               return (
-                <Row justify="center">
+                <Row justify="center" key={index}>
                   <Link
                     key={index}
                     href={item.link}
@@ -184,6 +252,14 @@ const NavBar = () => {
                 </Row>
               );
             })}
+            <Spacer />
+            <Row justify="center" key={"account"}>
+              <Account
+                user={user}
+                handleLogin={handleLogin}
+                css={{ textAlign: "center", fontSize: "3rem" }}
+              />
+            </Row>
           </Col>
         </Container>
       ) : null}

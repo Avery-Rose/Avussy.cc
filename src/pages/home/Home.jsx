@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaGithub,
   FaSteam,
@@ -10,7 +10,13 @@ import {
 import SocialLink from "./components/SocialLink";
 
 import { Grid, Container, Text, Card } from "@nextui-org/react";
-const Home = () => {
+
+import { Amplify } from "aws-amplify";
+import awsconfig from "../../aws-exports";
+
+Amplify.configure(awsconfig);
+
+const Home = (props) => {
   return (
     <Container
       css={{
@@ -26,12 +32,22 @@ const Home = () => {
       }}
       className="animate-fadeIn"
     >
-      <HomeData />
+      <HomeData props={props} />
     </Container>
   );
 };
 
-const HomeData = () => {
+const HomeData = (props) => {
+  const { user, handleLogin } = props.props;
+
+  useEffect(() => {
+    handleLogin({}, (res) => {
+      if (!res.success) {
+        console.log(res.message);
+      }
+    });
+  }, [user, handleLogin]);
+
   const socials = [
     {
       name: "Github",
