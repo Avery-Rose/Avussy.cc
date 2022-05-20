@@ -22,13 +22,13 @@ const Account = (props) => {
   );
 };
 
-const AccountMenu = (props) => {
+/*const AccountMenu = (props) => {
   return (
     <Container>
       <BiUserCircle />
     </Container>
   );
-};
+};*/
 
 const NavBar = (props) => {
   const { user, handleLogin } = props;

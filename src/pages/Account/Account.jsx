@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Container, Loading, Modal, Text } from "@nextui-org/react";
+import React, { useEffect } from "react";
+import { Container, Loading } from "@nextui-org/react";
 
 import AccountInfo from "../../components/AccountInfo";
 
