@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BiUpArrow, BiUserCircle } from "react-icons/bi";
+import { BiUpArrow } from "react-icons/bi";
 import { Container, Link, Col, Row, Text, Spacer } from "@nextui-org/react";
 
 const Account = (props) => {
