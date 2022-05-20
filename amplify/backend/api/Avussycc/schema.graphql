@@ -1,4 +1,4 @@
-type Task @model @auth(rules: [{allow: public}]) {
+type Task @model @auth(rules: [{ allow: public }]) {
   id: ID!
   listID: ID! @index(name: "byList")
   Complete: Boolean
@@ -6,7 +6,7 @@ type Task @model @auth(rules: [{allow: public}]) {
   description: String
 }
 
-type List @model @auth(rules: [{allow: public}]) {
+type List @model @auth(rules: [{ allow: public }]) {
   id: ID!
   userID: ID! @index(name: "byUser")
   Tasks: [Task] @hasMany(indexName: "byList", fields: ["id"])
@@ -14,7 +14,7 @@ type List @model @auth(rules: [{allow: public}]) {
   description: String
 }
 
-type User @model @auth(rules: [{allow: public}]) {
+type User @model @auth(rules: [{ allow: public }]) {
   id: ID!
   username: String!
   email: AWSEmail!

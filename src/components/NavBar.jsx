@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BiUpArrow } from 'react-icons/bi';
-import { Container, Link, Col, Row, Text, Spacer } from '@nextui-org/react';
+import React, { useState, useEffect } from "react";
+import { BiUpArrow } from "react-icons/bi";
+import { Container, Link, Col, Row, Text, Spacer } from "@nextui-org/react";
 
 const Account = (props) => {
   const { user, handleLogin, css } = props;
@@ -12,11 +12,11 @@ const Account = (props) => {
     });
   }, [user, handleLogin]);
   return user ? (
-    <Link key={'logout'} href={'/logout'} color={'error'} css={css}>
+    <Link key={"logout"} href={"/logout"} color={"error"} css={css}>
       Logout
     </Link>
   ) : (
-    <Link key={'login'} href={'/login'} color={'text'} css={css}>
+    <Link key={"login"} href={"/login"} color={"text"} css={css}>
       Login
     </Link>
   );
@@ -34,20 +34,20 @@ const NavBar = (props) => {
   const { user, handleLogin } = props;
   const nav = [
     {
-      name: 'Home',
-      link: '/'
+      name: "Home",
+      link: "/",
     },
     {
-      name: 'Trans Guide',
-      link: '/trans'
-    }
+      name: "Trans Guide",
+      link: "/trans",
+    },
   ];
 
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,
-      height
+      height,
     };
   }
 
@@ -67,8 +67,8 @@ const NavBar = (props) => {
         setIsMobile(true);
       }
     }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const isSelected = (link) => {
@@ -80,25 +80,27 @@ const NavBar = (props) => {
 
   const handleBurgerAnimation = () => {
     if (!isOpen) {
-      return 'transform-gpu rotate-180';
+      return "transform-gpu rotate-180";
     }
-    return 'transform-gpu rotate-0 text-lgbtq-pink';
+    return "transform-gpu rotate-0 text-lgbtq-pink";
   };
 
   return (
-    <div className='overflow-hidden'>
-      <div className='select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10'>
+    <div className="overflow-hidden">
+      <div className="select-none fixed w-full h-[80px] flex justify-between items-center bg-blue-dark text-white z-10">
         <div
-          className='group cursor-pointer z-10  px-4'
+          className="group cursor-pointer z-10  px-4"
           onClick={() => {
-            window.location.href = '/';
-          }}>
+            window.location.href = "/";
+          }}
+        >
           <Text
             h2
             css={{
-              userSelect: 'none'
+              userSelect: "none",
             }}
-            className='duration-300 hover:text-lgbtq-pink'>
+            className="duration-300 hover:text-lgbtq-pink"
+          >
             Avussy.cc
           </Text>
         </div>
@@ -108,29 +110,32 @@ const NavBar = (props) => {
           <Container>
             <Row
               css={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'end',
-                alignItems: 'center'
-              }}>
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "end",
+                alignItems: "center",
+              }}
+            >
               {nav.map((item, index) => {
                 return (
                   <Col
                     key={index}
                     css={{
-                      display: 'flex',
-                      width: 'fit-content',
-                      justifyContent: 'end',
-                      alignItems: 'end'
-                    }}>
+                      display: "flex",
+                      width: "fit-content",
+                      justifyContent: "end",
+                      alignItems: "end",
+                    }}
+                  >
                     <Link
                       key={index}
                       href={item.link}
                       block
-                      color={isSelected(item.link) ? 'primary' : 'text'}
+                      color={isSelected(item.link) ? "primary" : "text"}
                       css={{
-                        fontSize: '1rem'
-                      }}>
+                        fontSize: "1rem",
+                      }}
+                    >
                       {item.name}
                     </Link>
                   </Col>
@@ -138,22 +143,24 @@ const NavBar = (props) => {
               })}
               {user ? (
                 <Col
-                  key={'account'}
+                  key={"account"}
                   css={{
-                    display: 'flex',
-                    width: 'fit-content',
-                    justifyContent: 'end',
-                    alignItems: 'end'
-                  }}>
+                    display: "flex",
+                    width: "fit-content",
+                    justifyContent: "end",
+                    alignItems: "end",
+                  }}
+                >
                   <Link
-                    key={'account'}
-                    href={'/account'}
+                    key={"account"}
+                    href={"/account"}
                     block
-                    color={isSelected('/account') ? 'primary' : 'text'}
+                    color={isSelected("/account") ? "primary" : "text"}
                     css={{
-                      fontSize: '1rem'
-                    }}>
-                    {'Account'}
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {"Account"}
                   </Link>
                 </Col>
               ) : (
@@ -161,15 +168,16 @@ const NavBar = (props) => {
               )}
               <Col
                 css={{
-                  display: 'flex',
-                  width: 'fit-content',
-                  justifyContent: 'end',
-                  alignItems: 'end'
-                }}>
+                  display: "flex",
+                  width: "fit-content",
+                  justifyContent: "end",
+                  alignItems: "end",
+                }}
+              >
                 <Account
                   user={user}
                   handleLogin={handleLogin}
-                  css={{ fontSize: '1rem' }}
+                  css={{ fontSize: "1rem" }}
                 />
               </Col>
             </Row>
@@ -179,73 +187,77 @@ const NavBar = (props) => {
         {/* Hamburger */}
         <div
           onClick={handleNavClick}
-          className='md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black hover:text-lgbtq-blue z-10 h-full w-[80px] flex justify-center items-center duration-300'>
+          className="md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black hover:text-lgbtq-blue z-10 h-full w-[80px] flex justify-center items-center duration-300"
+        >
           <BiUpArrow
             size={35}
-            className={'duration-300 ' + handleBurgerAnimation()}
+            className={"duration-300 " + handleBurgerAnimation()}
           />
         </div>
 
-        <div className='w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround'></div>
+        <div className="w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround"></div>
       </div>
       {/* Mobile menu */}
       {isOpen ? (
         <Container
-          justify='center'
-          alignContent='center'
+          justify="center"
+          alignContent="center"
           css={{
-            position: 'absolute',
-            top: '81px',
-            left: '0',
-            width: '100vw',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'evenly',
-            height: 'calc(90vh)',
-            minWidth: '100vw',
-            maxWidth: '100vw',
-            m: '0',
-            p: '0',
-            overflowY: 'scroll',
-            overflowX: 'hidden',
+            position: "absolute",
+            top: "81px",
+            left: "0",
+            width: "100vw",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "evenly",
+            height: "calc(90vh)",
+            minWidth: "100vw",
+            maxWidth: "100vw",
+            m: "0",
+            p: "0",
+            overflowY: "scroll",
+            overflowX: "hidden",
             // blur the background
             // blur gradient
-            backdropFilter: 'blur(10px)',
+            backdropFilter: "blur(10px)",
             backgroundImage:
-              'linear-gradient(to bottom, rgb(0,0,0, 1), rgb(0,0,0,0.6))',
-            zIndex: '8'
+              "linear-gradient(to bottom, rgb(0,0,0, 1), rgb(0,0,0,0.6))",
+            zIndex: "8",
           }}
-          className='md:hidden overflow-scroll'>
+          className="md:hidden overflow-scroll"
+        >
           <Col
             css={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%'
-            }}>
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+            }}
+          >
             {nav.map((item, index) => {
               return (
-                <Row justify='center' key={index}>
+                <Row justify="center" key={index}>
                   <Link
                     key={index}
                     href={item.link}
                     block
-                    color={isSelected(item.link) ? 'primary' : 'text'}
+                    color={isSelected(item.link) ? "primary" : "text"}
                     css={{
-                      textAlign: 'center',
-                      fontSize: '3rem'
+                      textAlign: "center",
+                      fontSize: "3rem",
                     }}
-                    className={`animate-[drop-in ${index}]`}>
+                    className={`animate-[drop-in ${index}]`}
+                  >
                     {item.name}
                   </Link>
                 </Row>
               );
             })}
             <Spacer />
-            <Row justify='center' key={'account'}>
+            <Row justify="center" key={"account"}>
               <Account
                 user={user}
                 handleLogin={handleLogin}
-                css={{ textAlign: 'center', fontSize: '3rem' }}
+                css={{ textAlign: "center", fontSize: "3rem" }}
               />
             </Row>
           </Col>

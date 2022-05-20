@@ -1,20 +1,20 @@
-import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
-
-
-
-
+import {
+  ModelInit,
+  MutableModel,
+  PersistentModelConstructor,
+} from "@aws-amplify/datastore";
 
 type TaskMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
+  readOnlyFields: "createdAt" | "updatedAt";
+};
 
 type ListMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
+  readOnlyFields: "createdAt" | "updatedAt";
+};
 
 type UserMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
+  readOnlyFields: "createdAt" | "updatedAt";
+};
 
 export declare class Task {
   readonly id: string;
@@ -25,7 +25,12 @@ export declare class Task {
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Task, TaskMetaData>);
-  static copyOf(source: Task, mutator: (draft: MutableModel<Task, TaskMetaData>) => MutableModel<Task, TaskMetaData> | void): Task;
+  static copyOf(
+    source: Task,
+    mutator: (
+      draft: MutableModel<Task, TaskMetaData>
+    ) => MutableModel<Task, TaskMetaData> | void
+  ): Task;
 }
 
 export declare class List {
@@ -37,7 +42,12 @@ export declare class List {
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<List, ListMetaData>);
-  static copyOf(source: List, mutator: (draft: MutableModel<List, ListMetaData>) => MutableModel<List, ListMetaData> | void): List;
+  static copyOf(
+    source: List,
+    mutator: (
+      draft: MutableModel<List, ListMetaData>
+    ) => MutableModel<List, ListMetaData> | void
+  ): List;
 }
 
 export declare class User {
@@ -49,5 +59,10 @@ export declare class User {
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);
-  static copyOf(source: User, mutator: (draft: MutableModel<User, UserMetaData>) => MutableModel<User, UserMetaData> | void): User;
+  static copyOf(
+    source: User,
+    mutator: (
+      draft: MutableModel<User, UserMetaData>
+    ) => MutableModel<User, UserMetaData> | void
+  ): User;
 }

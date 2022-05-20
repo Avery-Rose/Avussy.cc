@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   FaGithub,
   FaSteam,
   FaTwitch,
   FaTwitter,
   FaInstagram,
-  FaDiscord
-} from 'react-icons/fa';
-import SocialLink from './components/SocialLink';
+  FaDiscord,
+} from "react-icons/fa";
+import SocialLink from "./components/SocialLink";
 
-import { Grid, Container, Text, Card } from '@nextui-org/react';
+import { Grid, Container, Text, Card } from "@nextui-org/react";
 
-import { Amplify } from 'aws-amplify';
-import awsconfig from '../../aws-exports';
+import { Amplify } from "aws-amplify";
+import awsconfig from "../../aws-exports";
 
 Amplify.configure(awsconfig);
 
@@ -20,17 +20,18 @@ const Home = (props) => {
   return (
     <Container
       css={{
-        position: 'absolute',
-        padding: '0',
-        margin: '0',
-        top: '80px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 'calc(100vh - 80px)',
-        minWidth: '100%',
-        overflow: 'scroll'
+        position: "absolute",
+        padding: "0",
+        margin: "0",
+        top: "80px",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "calc(100vh - 80px)",
+        minWidth: "100%",
+        overflow: "scroll",
       }}
-      className='animate-fadeIn'>
+      className="animate-fadeIn"
+    >
       <HomeData props={props} />
     </Container>
   );
@@ -49,41 +50,41 @@ const HomeData = (props) => {
 
   const socials = [
     {
-      name: 'Github',
-      link: 'https://github.com/Averyyyyyyyy',
+      name: "Github",
+      link: "https://github.com/Averyyyyyyyy",
       icon: <FaGithub />,
-      color: '#333'
+      color: "#333",
     },
     {
-      name: 'Steam',
-      link: 'https://steamcommunity.com/id/cummyavery/',
+      name: "Steam",
+      link: "https://steamcommunity.com/id/cummyavery/",
       icon: <FaSteam />,
-      color: '#171a21'
+      color: "#171a21",
     },
     {
-      name: 'Twitch',
-      link: 'https://www.twitch.tv/cattgirlava',
+      name: "Twitch",
+      link: "https://www.twitch.tv/cattgirlava",
       icon: <FaTwitch />,
-      color: '#6441a5'
+      color: "#6441a5",
     },
     {
-      name: 'Twitter',
-      link: 'https://twitter.com/cattgirlava',
+      name: "Twitter",
+      link: "https://twitter.com/cattgirlava",
       icon: <FaTwitter />,
-      color: '#1da1f2'
+      color: "#1da1f2",
     },
     {
-      name: 'Instagram',
-      link: 'https://www.instagram.com/cattgirlava/',
+      name: "Instagram",
+      link: "https://www.instagram.com/cattgirlava/",
       icon: <FaInstagram />,
-      color: '#e1306c'
+      color: "#e1306c",
     },
     {
-      name: 'Discord',
+      name: "Discord",
       icon: <FaDiscord />,
-      color: '#7289da',
-      value: 'avery#9957'
-    }
+      color: "#7289da",
+      value: "avery#9957",
+    },
   ];
 
   const getSocials = () => {
@@ -101,23 +102,25 @@ const HomeData = (props) => {
     });
   };
   return (
-    <div className='flex flex-col justify-center items-center h-fit md:h-full w-full p-10'>
-      <div className='max-w-8xl'>
+    <div className="flex flex-col justify-center items-center h-fit md:h-full w-full p-10">
+      <div className="max-w-8xl">
         <Card
           hoverable
           shadow
-          borderWeight='0'
+          borderWeight="0"
           css={{
-            maxWidth: '700px'
-          }}>
+            maxWidth: "700px",
+          }}
+        >
           <Text h2>
-            Hello, my name is{' '}
+            Hello, my name is{" "}
             <Text
               b
               css={{
-                color: 'var(--t-pink)',
-                fontWeight: 'bold'
-              }}>
+                color: "var(--t-pink)",
+                fontWeight: "bold",
+              }}
+            >
               Avery
             </Text>
           </Text>
@@ -127,7 +130,7 @@ const HomeData = (props) => {
             This website is going to be a project that I can practice on.
           </Text>
           <Card.Footer>
-            <Grid.Container gap={2} justify='center'>
+            <Grid.Container gap={2} justify="center">
               {getSocials()}
             </Grid.Container>
           </Card.Footer>

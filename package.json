@@ -25,7 +25,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "yarn run lint:prettier",
+    "lint:fix": "eslint --ext .js,.jsx src/ --fix",
+    "lint:prettier": "prettier --write .",
+    "lint:sort-package-json": "sort-package-json"
   },
   "eslintConfig": {
     "extends": [
