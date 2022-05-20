@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import SocialLink from "./components/SocialLink";
 
-import { Grid, Container, Spacer } from "@nextui-org/react";
+import { Grid, Container, Text, Card } from "@nextui-org/react";
 const Home = () => {
   return (
     <Container
@@ -85,34 +85,42 @@ const HomeData = () => {
       );
     });
   };
-
+  //<div className="flex flex-col justify-center">
   return (
     <div className="flex flex-col justify-center items-center h-fit md:h-full w-full p-10">
       <div className="max-w-8xl">
-        <div className="flex flex-col justify-center">
-          <div>
-            <span className="text-1xl sm:text-2xl text-white">
-              Hello, my name is{" "}
-            </span>
-            <span className="text-4xl sm:text-4xl font-bold text-lgbtq-pink">
-              Avery{" "}
-            </span>
-          </div>
-          <span className="text-white py-4 max-w-[700px]">
+        <Card
+          hoverable
+          shadow
+          borderWeight="0"
+          css={{
+            maxWidth: "700px",
+          }}
+        >
+          <Text h2>
+            Hello, my name is{" "}
+            <Text
+              b
+              css={{
+                color: "var(--t-pink)",
+                fontWeight: "bold",
+              }}
+            >
+              Avery
+            </Text>
+          </Text>
+          <Text>
             I{"'"}m 19 years of age. I like to code and plan to go into the
             field. Currently I am focusing on frontend development and design.
             This website is going to be a project that I can practice on.
-            <Spacer />
+          </Text>
+          <Card.Footer>
             <Grid.Container gap={2} justify="center">
               {getSocials()}
             </Grid.Container>
-          </span>
-        </div>
+          </Card.Footer>
+        </Card>
       </div>
-
-      {/*<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-evenly items-center">
-        {getSocials()}
-  </div>*/}
     </div>
   );
 };
