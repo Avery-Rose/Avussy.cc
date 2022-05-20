@@ -1,1 +1,3 @@
 src\models
+node_modules
+build
