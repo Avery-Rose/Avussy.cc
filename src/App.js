@@ -11,6 +11,7 @@ import Account from './pages/Account/Account';
 
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { Container } from '@nextui-org/react';
 
 Amplify.configure(awsconfig);
 
@@ -86,7 +87,7 @@ function App() {
   };
 
   return (
-    <div className='overflow-hidden'>
+    <div>
       <NavBar
         user={user}
         Auth={Auth}

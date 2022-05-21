@@ -190,7 +190,7 @@ const NavBar = (props) => {
       <div
         className='select-none fixed w-full h-[80px] flex justify-between items-center text-white z-10'
         style={{
-          backgroundColor: isDark ? '#1a1a1a' : '#fff',
+          backgroundColor: 'var(--nextui-colors-background)',
         }}
       >
         <div
