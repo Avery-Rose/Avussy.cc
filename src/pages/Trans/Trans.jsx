@@ -114,11 +114,12 @@ const TransData = () => {
                       Story Time
                     </Text>
                     <Text blockquote>
-                      It's just as I'm having a period. There's just something
-                      about menstruation that makes me feel so empowered and
-                      feminine. sometimes when I'm in the menstruation aisle at
-                      the store, I see girls buying pads. I give them a smile
-                      every time knowning that we are apart of a sisterhood.
+                      It{"'"}s just as I{"'"}m having a period. There{"'"}s just
+                      something about menstruation that makes me feel so
+                      empowered and feminine. sometimes when I{"'"}m in the
+                      menstruation aisle at the store, I see girls buying pads.
+                      I give them a smile every time knowning that we are apart
+                      of a sisterhood.
                     </Text>
                   </Text>
                 </Grid>
@@ -182,7 +183,6 @@ const TransData = () => {
                     allowFullScreen={true}
                     frameBorder="1"
                     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowFullScreen
                     style={{
                       maxWidth: "calc(1000% / 9)",
                     }}

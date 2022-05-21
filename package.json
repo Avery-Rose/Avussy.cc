@@ -28,8 +28,7 @@
     "eject": "react-scripts eject",
     "lint": "npm run lint:prettier",
     "lint:fix": "eslint --ext .js,.jsx src/ --fix",
-    "lint:prettier": "prettier --write .",
-    "lint:sort-package-json": "sort-package-json"
+    "lint:prettier": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
