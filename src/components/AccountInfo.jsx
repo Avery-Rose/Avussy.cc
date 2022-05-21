@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { Card, Container, Text } from "@nextui-org/react";
+import { Card, Container, Text } from '@nextui-org/react';
 
 const AccountInfo = ({ user }) => {
   return (
     <Card
       hoverable
       shadow
-      borderWeight="light"
+      borderWeight='light'
       css={{
-        width: "fit-content",
-        maxWidth: "700px",
+        width: 'fit-content',
+        maxWidth: '700px',
       }}
     >
       {user !== null ? (
@@ -18,13 +18,13 @@ const AccountInfo = ({ user }) => {
           <Text>Logged in as: {user?.preferred_username}</Text>
           <Text>email: {user?.email}</Text>
           <Text>
-            Email is currently:{" "}
+            Email is currently:{' '}
             {user.email_verified ? (
-              <Text b color="success">
+              <Text b color='success'>
                 Verified
               </Text>
             ) : (
-              <Text b color="error">
+              <Text b color='error'>
                 Waiting Verification
               </Text>
             )}
@@ -32,7 +32,7 @@ const AccountInfo = ({ user }) => {
         </Container>
       ) : (
         <Container>
-          <Text color="error">Error fetching account info</Text>
+          <Text color='error'>Error fetching account info</Text>
         </Container>
       )}
     </Card>

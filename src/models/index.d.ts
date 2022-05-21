@@ -2,18 +2,18 @@ import {
   ModelInit,
   MutableModel,
   PersistentModelConstructor,
-} from "@aws-amplify/datastore";
+} from '@aws-amplify/datastore';
 
 type TaskMetaData = {
-  readOnlyFields: "createdAt" | "updatedAt";
+  readOnlyFields: 'createdAt' | 'updatedAt';
 };
 
 type ListMetaData = {
-  readOnlyFields: "createdAt" | "updatedAt";
+  readOnlyFields: 'createdAt' | 'updatedAt';
 };
 
 type UserMetaData = {
-  readOnlyFields: "createdAt" | "updatedAt";
+  readOnlyFields: 'createdAt' | 'updatedAt';
 };
 
 export declare class Task {

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 @layer base {
   body {
-    @apply font-[RaleWay];
+    @apply font-[Raleway];
   }
   li {
     @apply px-4;
@@ -26,10 +26,6 @@
   --l-purple: #a50062;
 }
 
-::selection {
-  color: white;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -37,15 +33,4 @@ html {
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;
-}
-
-::-webkit-scrollbar-thumb {
-  /* 
-    Gradient scrolling
-  */
-  background-color: var(--t-pink);
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--dark-blue);
 }

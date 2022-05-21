@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { BiCopy } from "react-icons/bi";
+import { BiCopy } from 'react-icons/bi';
 
-import { Button, Grid, Text, Popover, Tooltip } from "@nextui-org/react";
+import { Button, Grid, Text, Popover, Tooltip } from '@nextui-org/react';
 
 const SocialLink = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -12,10 +12,10 @@ const SocialLink = (props) => {
 
   // duplicate icon
   const cloneIcon = React.cloneElement(icon, {
-    size: "32",
+    size: '32',
   });
 
-  const [tooltip, setTooltip] = useState("Copy");
+  const [tooltip, setTooltip] = useState('Copy');
 
   const returnButton = () => {
     if (value) {
@@ -24,7 +24,7 @@ const SocialLink = (props) => {
           disabled={isDisabled}
           shadow
           icon={cloneIcon}
-          color={"secondary"}
+          color={'secondary'}
           css={{ zIndex: 1 }}
           onPress={() => {
             setIsDisabled(true);
@@ -39,9 +39,9 @@ const SocialLink = (props) => {
           disabled={isDisabled}
           shadow
           icon={cloneIcon}
-          color={"primary"}
+          color={'primary'}
           onPress={() => {
-            window.open(link, "_blank");
+            window.open(link, '_blank');
           }}
           css={{ zIndex: 1 }}
         >
@@ -64,7 +64,7 @@ const SocialLink = (props) => {
           <Popover.Trigger>{returnButton()}</Popover.Trigger>
           <Popover.Content>
             <Grid.Container>
-              <Text css={{ p: 10, zIndex: 1 }} className="select-all">
+              <Text css={{ p: 10, zIndex: 1 }} className='select-all'>
                 {value}
               </Text>
               <Tooltip
@@ -72,7 +72,7 @@ const SocialLink = (props) => {
                 onVisibleChange={(visible) => {
                   if (!visible) {
                     setTimeout(() => {
-                      setTooltip("Copy");
+                      setTooltip('Copy');
                     }, 250);
                   }
                 }}
@@ -84,7 +84,7 @@ const SocialLink = (props) => {
                   light
                   onPress={() => {
                     navigator.clipboard.writeText(value);
-                    setTooltip("Copied!");
+                    setTooltip('Copied!');
                   }}
                   css={{ zIndex: 1 }}
                 >

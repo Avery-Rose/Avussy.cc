@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "standard", "prettier"],
+  "extends": ["plugin:react/recommended", "google", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -15,6 +15,10 @@
   "rules": {
     "semi": ["error", "always"],
     "react/prop-types": "off",
-    "n/no-callback-literal": "error"
+    "camelcase": "warn",
+    "require-jsdoc": "off",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "n/no-callback-literal": "off"
   }
 }
