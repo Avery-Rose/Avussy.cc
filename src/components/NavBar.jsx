@@ -186,11 +186,11 @@ const NavBar = (props) => {
   };
 
   return (
-    <div className='overflow-hidden'>
+    <div>
       <div
         className='select-none fixed w-full h-[80px] flex justify-between items-center text-white z-10'
         style={{
-          backgroundColor: 'var(--nextui-colors-background)',
+          backgroundColor: 'var(--nextui-colors-secondaryBackground)',
         }}
       >
         <div
