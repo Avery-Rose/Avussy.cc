@@ -7,6 +7,7 @@ import {
   Image,
   Link,
   Spacer,
+  Row,
 } from '@nextui-org/react';
 
 const TransData = () => {
@@ -92,12 +93,9 @@ const TransData = () => {
                   <Spacer />
                   <Image
                     showSkeleton
+                    objectFit='cover'
                     src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gestion_menstrual_tampon_toallitas_menstruaci%C3%B3n_periodicas_06.jpg'
                     width='100%'
-                    css={{
-                      maxWidth: '400px',
-                    }}
-                    maxDelay={10000}
                   />
                 </Grid>
               </Grid.Container>
@@ -165,29 +163,104 @@ const TransData = () => {
                     SkinSafe™ technology does not guarantee cut protection.
                   </Text>
                 </Grid>
-                <Grid
-                  justify='center'
-                  alignItems='center'
-                  css={{
-                    display: 'flex',
-                    flexDirection: 'column',
+                <div
+                  id='youtube-container'
+                  style={{
+                    overflow: 'hidden',
+                    position: 'relative',
+                    width: '100%',
+                    paddingBottom: '56.25%',
                   }}
                 >
-                  <Spacer />
                   <iframe
                     src='https://www.youtube.com/embed/glh-CjX3DiM?controls=0'
-                    loading='lazy'
                     title='Manscape'
-                    height={'360'}
-                    width={'640'}
-                    allowFullScreen={true}
-                    frameBorder='1'
+                    allowFullScreen
+                    frameBorder='0'
                     allow='autoplay; encrypted-media; picture-in-picture; fullscreen'
                     style={{
-                      maxWidth: 'calc(1000% / 9)',
+                      position: 'absolute',
+                      top: '0',
+                      left: '0',
+                      width: '100%',
+                      height: '100%',
                     }}
                   />
-                  <Spacer />
+                </div>
+              </Grid.Container>
+            </Collapse>
+            <Collapse
+              title={
+                <Text
+                  css={{ textGradient: '45deg, $blue600 -20%, $pink600 50%' }}
+                  h3
+                >
+                  How to groom ur pussy.
+                </Text>
+              }
+            >
+              <Text
+                css={{ textGradient: '45deg, $blue600 -20%, $pink600 50%' }}
+                h2
+              >
+                Let{"'"}s get started!
+              </Text>
+              <Spacer />
+              <Grid.Container
+                justify='space-around'
+                css={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+                fluid
+              >
+                <Grid>
+                  <Row>
+                    <Container css={{ padding: 0, margin: 0 }}>
+                      <Text h3>
+                        First we need to recite the following prayer
+                      </Text>
+                      <Text h4>Avussy tight,</Text>
+                      <Text h4>Avussy clean,</Text>
+                      <Text h4>Avussy fresh.</Text>
+                      <Text h4>Avussy pretty,</Text>
+                      <Text h4>Avussy fat,</Text>
+                      <Text h4>full of flesh</Text>
+                    </Container>
+                    <Image
+                      showSkeleton
+                      src='/images/astolfo.png'
+                      objectFit='scale-down'
+                      css={{
+                        maxWidth: '400px',
+                        maxHeight: '400px',
+                      }}
+                    />
+                  </Row>
+                  <Spacer y={3} />
+                  <Row>
+                    <Image
+                      showSkeleton
+                      css={{ maxHeight: '400px' }}
+                      src='/images/kitty.png'
+                      objectFit='scale-down'
+                    />
+                    <Container css={{ padding: 0, margin: 0 }}>
+                      <Text h3>Now we should be ready to groom that pussy</Text>
+                      <Container>
+                        <Text h5>
+                          You can start by stroking it.{' '}
+                          <Text b>CAREFUL NOW</Text> you don{"'"}t want it to
+                          scratch you. Once you{"'"}re done, you can start
+                          rubbing it with your finger. You can also use a towel
+                          to rub it. your pussy shouldn{"'"}t sratch you by this
+                          step since by now it has gotten numb from all the
+                          stroking.
+                        </Text>
+                      </Container>
+                    </Container>
+                  </Row>
                 </Grid>
               </Grid.Container>
             </Collapse>

@@ -7,9 +7,19 @@ import {
   FaInstagram,
   FaDiscord,
 } from 'react-icons/fa';
+import { GoRepoForked } from 'react-icons/go';
 import SocialLink from './components/SocialLink';
 
-import { Grid, Container, Text, Card } from '@nextui-org/react';
+import {
+  Grid,
+  Container,
+  Text,
+  Card,
+  Popover,
+  Button,
+  Tooltip,
+  Spacer,
+} from '@nextui-org/react';
 
 import { Amplify } from 'aws-amplify';
 import awsconfig from '../../aws-exports';
@@ -49,12 +59,6 @@ const HomeData = (props) => {
   }, [user, handleLogin]);
 
   const socials = [
-    {
-      name: 'Github',
-      link: 'https://github.com/Averyyyyyyyy',
-      icon: <FaGithub />,
-      color: '#333',
-    },
     {
       name: 'Steam',
       link: 'https://steamcommunity.com/id/cummyavery/',
@@ -129,7 +133,66 @@ const HomeData = (props) => {
             This website is going to be a project that I can practice on.
           </Text>
           <Card.Footer>
-            <Grid.Container gap={2} justify='center'>
+            <Grid.Container css={{ p: 10 }} gap={2} justify='center'>
+              <Grid>
+                <Popover>
+                  <Popover.Trigger>
+                    <Button
+                      shadow
+                      icon={<FaGithub size={32} />}
+                      color={'secondary'}
+                      css={{ zIndex: 1 }}
+                    >
+                      Github
+                    </Button>
+                  </Popover.Trigger>
+                  <Popover.Content>
+                    <Grid.Container>
+                      <Container
+                        css={{
+                          padding: '10',
+                          margin: '0',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Spacer />
+                        <Button
+                          icon={<GoRepoForked size={32} />}
+                          auto
+                          onClick={() => {
+                            window.open(
+                              'https://github.com/Averyyyyyyyy/Avussy.cc',
+                              '_blank'
+                            );
+                          }}
+                        >
+                          Repo
+                        </Button>
+                        <Spacer />
+                        <Button
+                          icon={
+                            <FaGithub
+                              size={32}
+                              onClick={() => {
+                                window.open(
+                                  'https://github.com/Averyyyyyyyy/',
+                                  '_blank'
+                                );
+                              }}
+                            />
+                          }
+                          auto
+                        >
+                          Profile
+                        </Button>
+                        <Spacer />
+                      </Container>
+                    </Grid.Container>
+                  </Popover.Content>
+                </Popover>
+              </Grid>
               {getSocials()}
             </Grid.Container>
           </Card.Footer>
