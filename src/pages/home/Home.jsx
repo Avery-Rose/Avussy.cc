@@ -48,16 +48,6 @@ const Home = (props) => {
 };
 
 const HomeData = (props) => {
-  const { user, handleLogin } = props.props;
-
-  useEffect(() => {
-    handleLogin({}, (res) => {
-      if (!res.success) {
-        console.log(res.message);
-      }
-    });
-  }, [user, handleLogin]);
-
   const socials = [
     {
       name: 'Steam',

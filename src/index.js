@@ -10,6 +10,14 @@ import {
   changeTheme,
 } from '@nextui-org/react';
 
+/* 
+import { Amplify, Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+
+Amplify.configure(awsconfig); 
+*/
+
 const darkTheme = createTheme({
   type: 'dark',
   theme: {

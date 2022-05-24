@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BiUpArrow } from 'react-icons/bi';
-import {
-  Container,
-  Link,
-  Col,
-  Row,
-  Spacer,
-  Switch,
-  useTheme,
-  changeTheme,
-  Text,
-} from '@nextui-org/react';
-
-import { GrSun } from 'react-icons/gr';
-import { GrMoon } from 'react-icons/gr';
+import { Container, Link, Col, Row, Text } from '@nextui-org/react';
 
 const isSelected = (link) => {
   return window.location.pathname === link;
@@ -90,35 +77,7 @@ const NavItem = (props) => {
   );
 };
 
-const Account = (props) => {
-  const { user, handleLogin, css } = props;
-  useEffect(() => {
-    handleLogin({}, (res) => {
-      if (!res.success) {
-      }
-    });
-  }, [user, handleLogin]);
-  return user ? (
-    <Link key={'logout'} href={'/logout'} color={'error'} css={css}>
-      Logout
-    </Link>
-  ) : (
-    <Link key={'login'} href={'/login'} color={'text'} css={css}>
-      Login
-    </Link>
-  );
-};
-
-/* const AccountMenu = (props) => {
-  return (
-    <Container>
-      <BiUserCircle />
-    </Container>
-  );
-}; */
-
 const NavBar = (props) => {
-  const { user, handleLogin } = props;
   const nav = [
     {
       name: 'Home',
@@ -158,11 +117,6 @@ const NavBar = (props) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    const curTheme = window.localStorage.getItem('data-theme') || 'dark';
-    changeTheme(curTheme);
-  }, []);
-
   const [isOpen, setIsOpen] = useState(false);
   const handleNavClick = () => setIsOpen(!isOpen);
 
@@ -171,18 +125,6 @@ const NavBar = (props) => {
       return 'transform-gpu rotate-180';
     }
     return 'transform-gpu rotate-0 text-lgbtq-pink';
-  };
-
-  // theme
-  const { type, isDark } = useTheme();
-
-  const handleChange = () => {
-    const nextTheme = isDark ? 'light' : 'dark';
-    localStorage.setItem('dark-theme', nextTheme);
-
-    // useTheme,
-    // changeTheme,
-    changeTheme(nextTheme);
   };
 
   return (
@@ -223,42 +165,11 @@ const NavBar = (props) => {
             >
               {nav.map((item, index) => {
                 return (
-                  <NavItem
-                    key={item.name + index}
-                    href={item.link}
-                    isDark={isDark}
-                  >
+                  <NavItem key={item.name + index} href={item.link}>
                     {item.name}
                   </NavItem>
                 );
               })}
-              {user ? (
-                <Col
-                  key={'account'}
-                  css={{
-                    display: 'flex',
-                    width: 'fit-content',
-                    justifyContent: 'end',
-                    alignItems: 'end',
-                    padding: 10,
-                  }}
-                >
-                  <Link
-                    key={'account'}
-                    href={'/account'}
-                    block
-                    color={isSelected('/account') ? 'primary' : 'text'}
-                    css={{
-                      fontSize: '1.5rem',
-                      letterSpacing: '0.1rem',
-                    }}
-                  >
-                    {'Account'}
-                  </Link>
-                </Col>
-              ) : (
-                <></>
-              )}
             </Row>
           </Container>
         )}
@@ -338,54 +249,3 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
-
-/* <Spacer />
-            <Row justify='center' key={'account'}>
-              <Account
-                user={user}
-                handleLogin={handleLogin}
-                css={{ textAlign: 'center', fontSize: '3rem' }}
-              />
-            </Row> */
-
-/* <Col
-                css={{
-                  display: 'flex',
-                  width: 'fit-content',
-                  justifyContent: 'end',
-                  alignItems: 'end',
-                  padding: 10,
-                }}
-              >
-                <Account
-                  user={user}
-                  handleLogin={handleLogin}
-                  css={{ fontSize: '1.5rem', letterSpacing: '0.1rem' }}
-                />
-              </Col>*/
-
-/* <Container>
-          <Switch
-            iconOff={
-              <GrMoon
-                value={{
-                  fontSize: '1.5rem',
-                  color: isDark ? '#fff' : '#1a1a1a',
-                }}
-              />
-            }
-            iconOn={
-              <GrSun
-                value={{
-                  fontSize: '1.5rem',
-                  color: isDark ? '#1a1a1a' : '#fff',
-                }}
-              />
-            }
-            initialChecked={isDark}
-            onChange={(e) => {
-              handleChange();
-            }}
-          />
-          <Text>{type}</Text>
-        </Container> */
