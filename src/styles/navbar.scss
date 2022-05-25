@@ -1,5 +1,6 @@
 $text: #ffffff;
 $linkHover: #fd8cff;
+$navbackground: #1a1a1a;
 
 .navbar {
   position: fixed;
@@ -11,7 +12,7 @@ $linkHover: #fd8cff;
   left: 0;
   width: 100vw;
   height: 80px;
-  background-color: rgb(26, 26, 26);
+  background-color: $navbackground;
 
   color: $text;
 
@@ -85,7 +86,7 @@ nav-items {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(26, 26, 26);
+  background-color: $navbackground;
 
   display: flex;
   justify-content: center;

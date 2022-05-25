@@ -1,13 +1,20 @@
-img {
-  width: 25%;
-  padding: 10px;
-}
-
 .split {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
+  img {
+    width: 25%;
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    img {
+      width: 50%;
+    }
+  }
 }
 
 h1 {

@@ -130,17 +130,24 @@ const Navbar = () => {
         className='navbar'
         initial={{
           y: 0,
+          backgroundColor: '#2c2c2c',
         }}
         animate={{
           y: showNavbar || isOpen ? 0 : -80,
-
-          backgroundColor:
-            lastScrollPos > 5 && !isOpen ? '#2c2c2c' : 'rgb(26, 26, 26)',
+          backgroundColor: isOpen
+            ? '#1a1a1a'
+            : lastScrollPos > 5
+            ? '#3c3c3c'
+            : '#2c2c2c',
+          // backgroundColor:  !isOpen ? '#2c2c2c' : '#1a1a1a',
           // shadow
           boxShadow:
             lastScrollPos > 5 && !isOpen
               ? '0px 0px 10px rgba(0, 0, 0, 0.5)'
               : '0px 0px 0px rgba(0, 0, 0, 0.5)',
+        }}
+        exit={{
+          backgroundColor: '#2c2c2c',
         }}
         transition={{
           duration: 0.3,

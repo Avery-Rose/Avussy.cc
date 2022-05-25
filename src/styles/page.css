@@ -1,8 +1,3 @@
-img {
-  width: 25%;
-  padding: 10px;
-}
-
 .split {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,6 +12,23 @@ img {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.split img {
+  width: 25%;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .split {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .split img {
+    width: 50%;
+  }
 }
 
 h1 {
