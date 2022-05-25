@@ -5,7 +5,7 @@ import '../index.css';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
-import Navbar from './Navbar';
+import Navbar from './NavBar';
 
 import Home from '../pages/Home';
 import Trans from '../pages/Trans';
