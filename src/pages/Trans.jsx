@@ -49,7 +49,10 @@ const Trans = () => {
               </Typography>
             </Container>
 
-            <img src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gestion_menstrual_tampon_toallitas_menstruaci%C3%B3n_periodicas_06.jpg'></img>
+            <img
+              src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Gestion_menstrual_tampon_toallitas_menstruaci%C3%B3n_periodicas_06.jpg'
+              alt='tampon'
+            ></img>
           </div>
           <Container>
             <h2>Story Time</h2>
