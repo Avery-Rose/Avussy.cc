@@ -37,7 +37,7 @@
     "scminput": true,
     "git-commit": true
   },
-  "github.copilot.inlineSuggest.enable": false,
+  "github.copilot.inlineSuggest.enable": true,
   "prettier.arrowParens": "always",
   "prettier.endOfLine": "crlf",
   "prettier.jsxSingleQuote": true,

@@ -1,251 +1,135 @@
-import React, { useState, useEffect } from 'react';
-import { BiUpArrow } from 'react-icons/bi';
-import { Container, Link, Col, Row, Text } from '@nextui-org/react';
+import React, { useEffect } from 'react';
 
-const isSelected = (link) => {
-  return window.location.pathname === link;
-};
+import { Link } from 'react-router-dom';
 
-const NavItem = (props) => {
-  const { children, href, key } = props;
-  return (
-    <Col
-      key={key}
-      justify={'center'}
-      css={{
-        width: 'fit-content',
-        margin: '0px 10px',
-        padding: '10px',
-        background: '$secondaryBackground',
-      }}
-    >
-      <Text
-        onClick={() => {
-          window.location.href = href;
-        }}
-        key={key}
-        href={href}
-        color={isSelected(href) ? 'primary' : 'secondary'}
-        css={{
-          cursor: 'pointer',
-          fontSize: '1.5rem',
-          letterSpacing: '0.1rem',
-          textTransform: 'uppercase',
-          fontWeight: 'bold',
-          display: 'inline-block',
-          position: 'relative',
+import '../styles/navbar.css';
 
-          transition: 'transition 0.2s ease-in-out, opacity 0.25s ease-out',
-          opacity: isSelected(href) ? 1 : 0.5,
-          transformOrigin: 'bottom right',
+import { motion } from 'framer-motion';
 
-          '&:after': {
-            content: '""',
-            position: 'absolute',
-            width: '100%',
-            transform: 'scaleX(0)',
-            height: '2px',
-            bottom: '0',
-            left: '0',
-            transformOrigin: 'bottom right',
-
-            transition: 'transform 0.25s ease-out',
-
-            // linear background gradient
-            background: '$secondary',
-          },
-
-          '&:active': {
-            color: '$primary',
-            transition: 'all 0.25s ease-out',
-          },
-
-          '&:hover': {
-            '&:after': {
-              transform: isSelected(href) ? 'scaleX(0)' : 'scaleX(1)',
-              transformOrigin: 'bottom left',
-            },
-            transformOrigin: 'bottom left',
-            transition: 'transform 0.25 ease-out',
-            opacity: '1',
-          },
-        }}
-      >
-        {children}
-      </Text>
-    </Col>
-  );
-};
-
-const NavBar = (props) => {
-  const nav = [
-    {
-      name: 'Home',
-      link: '/',
-    },
-    {
-      name: 'Trans Guide',
-      link: '/trans',
-    },
-  ];
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 768);
-  // eslint-disable-next-line no-unused-vars
-  const [windowDimentions, setWindowDimentions] = useState(
-    getWindowDimensions()
-  );
+const Navbar = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   useEffect(() => {
-    function handleResize() {
-      setWindowDimentions(getWindowDimensions());
-      if (getWindowDimensions().width >= 768) {
-        setIsMobile(false);
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+
+      if (window.innerWidth > 768) {
         setIsOpen(false);
-      } else {
-        setIsMobile(true);
       }
-    }
+    };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const handleNavClick = () => setIsOpen(!isOpen);
+  const menu = {
+    hidden: { y: '-100vh', transition: { duration: 0.5, delay: 0.2 } },
+    visible: { y: 0, transition: { duration: 0.5 } },
+  };
 
-  const handleBurgerAnimation = () => {
-    if (!isOpen) {
-      return 'transform-gpu rotate-180';
-    }
-    return 'transform-gpu rotate-0 text-lgbtq-pink';
+  const menuItem = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+      transition: { duration: 0.5 },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.5, type: 'spring', stiffness: 100 },
+    },
   };
 
   return (
-    <div>
-      <div
-        className='select-none fixed w-full h-[80px] flex justify-between items-center text-white z-10'
-        style={{
-          backgroundColor: 'var(--nextui-colors-secondaryBackground)',
-        }}
-      >
-        <div
-          className='group cursor-pointer z-10  px-4'
-          onClick={() => {
-            window.location.href = '/';
-          }}
+    <motion.div>
+      <>
+        <motion.div
+          className='burger-menu'
+          variants={menu}
+          initial='hidden'
+          animate={isOpen ? 'visible' : 'hidden'}
+          exit={'hidden'}
         >
-          <Link
-            href='/'
-            color={'text'}
-            css={{
-              userSelect: 'none',
-              fontSize: '2.5rem',
-            }}
-          >
-            Avussy.cc
-          </Link>
-        </div>
-        {/* menu */}
-        {isMobile ? null : (
-          <Container>
-            <Row
-              css={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'end',
-                alignItems: 'center',
-              }}
-            >
-              {nav.map((item, index) => {
-                return (
-                  <NavItem key={item.name + index} href={item.link}>
-                    {item.name}
-                  </NavItem>
-                );
-              })}
-            </Row>
-          </Container>
+          <motion.li variants={menuItem}>
+            <Link className='nav-link' to='/'>
+              Home
+            </Link>
+          </motion.li>
+          <motion.li variants={menuItem}>
+            <Link className='nav-link' to='/trans'>
+              Trans
+            </Link>
+          </motion.li>
+        </motion.div>
+      </>
+
+      <nav className='navbar'>
+        <span className='logo'>Avussy.cc</span>
+        {!isMobile && (
+          <ul className='nav-items'>
+            <motion.li variants={menuItem} key='home'>
+              <Link className='nav-link' to='/'>
+                Home
+              </Link>
+            </motion.li>
+            <motion.li variants={menuItem} key='trans'>
+              <Link className='nav-link' to='/trans'>
+                Trans
+              </Link>
+            </motion.li>
+          </ul>
         )}
 
-        {/* Hamburger */}
-        <div
-          onClick={handleNavClick}
-          className='md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black hover:text-lgbtq-blue z-10 h-full w-[80px] flex justify-center items-center duration-300'
-        >
-          <BiUpArrow
-            size={35}
-            className={'duration-300 ' + handleBurgerAnimation()}
-          />
-        </div>
-        <div className='w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround'></div>
-      </div>
-      {/* Mobile menu */}
-      {isOpen ? (
-        <Container
-          justify='center'
-          alignContent='center'
-          css={{
-            position: 'absolute',
-            top: '81px',
-            left: '0',
-            width: '100vw',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'evenly',
-            height: 'calc(90vh)',
-            minWidth: '100vw',
-            maxWidth: '100vw',
-            m: '0',
-            p: '0',
-            overflowY: 'scroll',
-            overflowX: 'hidden',
-            // blur the background
-            // blur gradient
-            backdropFilter: 'blur(10px)',
-            backgroundImage:
-              'linear-gradient(to bottom, rgb(0,0,0, 1), rgb(0,0,0,0.6))',
-            zIndex: '8',
-          }}
-          className='md:hidden overflow-scroll'
-        >
-          <Col
-            css={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
+        {isMobile && (
+          <div
+            className='burger'
+            onClick={() => {
+              setIsOpen(!isOpen);
             }}
           >
-            {nav.map((item, index) => {
-              return (
-                <Row justify='center' key={index}>
-                  <Link
-                    key={index}
-                    href={item.link}
-                    block
-                    color={isSelected(item.link) ? 'primary' : 'text'}
-                    css={{
-                      textAlign: 'center',
-                      fontSize: '3rem',
-                    }}
-                    className={`animate-[drop-in ${index}]`}
-                  >
-                    {item.name}
-                  </Link>
-                </Row>
-              );
-            })}
-          </Col>
-        </Container>
-      ) : null}
-    </div>
+            <div className='lines'>
+              <motion.div
+                className='line'
+                initial={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: isOpen ? [0, 8, 8] : [8, 8, 0],
+                  rotate: isOpen ? [0, 0, 45] : [45, 0, 0],
+                }}
+              ></motion.div>
+              <motion.div
+                className='line'
+                initial={{ y: 0, rotate: 0 }}
+                animate={{
+                  opacity: isOpen ? [1, 0, 0] : [0, 0, 1],
+                  rotate: 0,
+                  y: 0,
+                }}
+              ></motion.div>
+              <motion.div
+                className='line'
+                initial={{ y: 0, rotate: 0 }}
+                animate={{
+                  y: isOpen ? [0, -8, -8] : [-8, -8, 0],
+                  rotate: isOpen ? [0, 0, -45] : [-45, 0, 0],
+                  opacity: 1,
+                }}
+              ></motion.div>
+            </div>
+          </div>
+        )}
+      </nav>
+    </motion.div>
   );
 };
 
-export default NavBar;
+export default Navbar;
