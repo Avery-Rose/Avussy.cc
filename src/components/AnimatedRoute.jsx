@@ -9,6 +9,7 @@ import Navbar from './NavBar';
 
 import Home from '../pages/Home';
 import Trans from '../pages/Trans';
+import NotFound from '../pages/NotFound';
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -33,6 +34,15 @@ const AnimatedRoute = () => {
               <>
                 <Navbar />
                 <Trans />
+              </>
+            }
+          />
+          <Route
+            path='404'
+            element={
+              <>
+                <Navbar />
+                <NotFound />
               </>
             }
           />

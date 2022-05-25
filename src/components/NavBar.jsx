@@ -56,7 +56,7 @@ const Navbar = () => {
 
   const menu = {
     hidden: { y: '-100vh', transition: { duration: 0.5, delay: 0.2 } },
-    visible: { y: 0, transition: { duration: 0.5 } },
+    visible: { y: 0, transition: { duration: 0.5, staggerChildren: 0.2 } },
   };
 
   const menuItem = {
