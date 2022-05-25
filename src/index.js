@@ -4,23 +4,11 @@ import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AnimatedRoute from './components/AnimatedRoute';
 
-import { NextUIProvider, createTheme } from '@nextui-org/react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
-  type: 'dark',
-  theme: {
-    colors: {
-      primary: '#00bcd4',
-      secondary: '#ff9800',
-      background: '#212121',
-      text: '#ffffff',
-      border: '#424242',
-      borderHover: '#616161',
-      borderActive: '#00bcd4',
-      borderDisabled: '#424242',
-      borderFocused: '#00bcd4',
-      borderHovered: '#616161',
-    },
+  palette: {
+    mode: 'dark',
   },
 });
 
@@ -35,8 +23,8 @@ Amplify.configure(awsconfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-    <NextUIProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <AnimatedRoute />
-    </NextUIProvider>
+    </ThemeProvider>
   </Router>
 );

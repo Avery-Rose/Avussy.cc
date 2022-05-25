@@ -22,6 +22,13 @@
   z-index: 100;
   font-size: 2rem;
   padding: 20px;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.logo:hover {
+  color: #ff8c8c;
 }
 
 .nav-items {
@@ -42,7 +49,7 @@
   flex-direction: row;
 }
 
-ul {
+nav-items {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -59,7 +66,7 @@ ul {
   flex-direction: row;
 }
 
-li {
+.nav-link {
   list-style: none;
   margin: 0 !important;
   height: -webkit-fit-content;
@@ -74,11 +81,11 @@ li {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  z-index: 100;
-  padding: 0 20px;
 }
 
-.nav-link {
+.nav-link a {
+  z-index: 100;
+  padding: 0 20px;
   z-index: 100;
   font-size: 1.2rem;
   font-family: 'Raleway', sans-serif;
@@ -89,8 +96,37 @@ li {
   transition: all 0.2s ease-in-out;
 }
 
-.nav-link:hover {
+.nav-link a:hover {
   color: #ff8c8c;
+}
+
+.burger-menu {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a1a1a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.burger-menu .nav-link a {
+  z-index: 100;
+  font-size: 10vw;
+  padding: 3rem;
 }
 
 .burger {
@@ -117,32 +153,24 @@ li {
   margin: 5px;
 }
 
-.burger-menu {
+.scroll-top {
   z-index: 100;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #1a1a1a;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
 }
 
-.burger-menu .nav-link {
-  z-index: 100;
-  font-size: 10vw;
-  padding: 3rem;
+@media screen and (max-width: 768px) {
+  .scroll-top {
+    right: 5px;
+    bottom: 5px;
+  }
+}
+
+.scroll-top .scroll-top-icon {
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=navbar.css.map */

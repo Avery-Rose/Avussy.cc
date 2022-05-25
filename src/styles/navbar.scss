@@ -1,4 +1,5 @@
 $text: #ffffff;
+$linkHover: #ff8c8c;
 
 .navbar {
   position: fixed;
@@ -21,6 +22,13 @@ $text: #ffffff;
   z-index: 100;
   font-size: 2rem;
   padding: 20px;
+
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: $linkHover;
+  }
 }
 
 .nav-items {
@@ -32,7 +40,7 @@ $text: #ffffff;
   flex-direction: row;
 }
 
-ul {
+nav-items {
   list-style: none;
   display: flex;
   justify-content: flex-end;
@@ -40,7 +48,7 @@ ul {
   flex-direction: row;
 }
 
-li {
+.nav-link {
   list-style: none;
   margin: 0 !important;
 
@@ -50,22 +58,44 @@ li {
   align-items: center;
   justify-content: center;
 
-  z-index: 100;
+  a {
+    z-index: 100;
 
-  padding: 0 20px;
+    padding: 0 20px;
+    z-index: 100;
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: $text;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $linkHover;
+    }
+  }
 }
 
-.nav-link {
+.burger-menu {
   z-index: 100;
-  font-size: 1.2rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  color: $text;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(26, 26, 26);
 
-  &:hover {
-    color: #ff8c8c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .nav-link {
+    a {
+      z-index: 100;
+      font-size: 10vw;
+      padding: 3rem;
+    }
   }
 }
 
@@ -89,23 +119,21 @@ li {
   }
 }
 
-.burger-menu {
+.scroll-top {
   z-index: 100;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(26, 26, 26);
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    right: 5px;
+    bottom: 5px;
+  }
 
-  .nav-link {
-    z-index: 100;
-    font-size: 10vw;
-    padding: 3rem;
+  .scroll-top-icon {
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
   }
 }

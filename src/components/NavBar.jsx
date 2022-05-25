@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { BsFillArrowUpCircleFill } from 'react-icons/bs';
+
 import '../styles/navbar.css';
 
 import { motion } from 'framer-motion';
@@ -9,9 +11,35 @@ import { motion } from 'framer-motion';
 const Navbar = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const [showNavbar, setShowNavbar] = React.useState(true);
+
+  const [burgerHover, setBurgerHover] = React.useState(false);
+  const [lastScrollPos, setLastScrollPos] = React.useState(0);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
+
+    const handleScroll = () => {
+      console.log(window.scrollY, lastScrollPos);
+
+      if (window.scrollY > lastScrollPos) {
+        setShowNavbar(false);
+        console.log('scrolling down');
+      } else {
+        setShowNavbar(true);
+        console.log('scrolling up');
+      }
+
+      setLastScrollPos(window.scrollY);
+
+      if (window.scrollY > 100) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+        setShowNavbar(true);
+      }
+    };
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -21,12 +49,14 @@ const Navbar = () => {
       }
     };
 
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
 
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [lastScrollPos]);
 
   const menu = {
     hidden: { y: '-100vh', transition: { duration: 0.5, delay: 0.2 } },
@@ -46,9 +76,42 @@ const Navbar = () => {
     },
   };
 
+  const menuItemDesktop = {
+    hidden: {
+      opacity: 0,
+      y: -100,
+      transition: { duration: 0.5 },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.3, type: 'spring', stiffness: 60 },
+    },
+  };
+
   return (
     <motion.div>
       <>
+        <motion.div
+          className='scroll-top'
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+          initial={{
+            scale: 0,
+          }}
+          animate={{
+            scale: showScrollTop ? 1 : 0,
+          }}
+          transition={
+            showScrollTop
+              ? { type: 'spring', stiffness: 100 }
+              : { duration: 0.2 }
+          }
+        >
+          <BsFillArrowUpCircleFill className='scroll-top-icon' />
+        </motion.div>
+        {/* Mobile NavMenu */}
         <motion.div
           className='burger-menu'
           variants={menu}
@@ -56,34 +119,62 @@ const Navbar = () => {
           animate={isOpen ? 'visible' : 'hidden'}
           exit={'hidden'}
         >
-          <motion.li variants={menuItem}>
-            <Link className='nav-link' to='/'>
-              Home
-            </Link>
+          <motion.li variants={menuItem} className='nav-link'>
+            <Link to='/'>Home</Link>
           </motion.li>
-          <motion.li variants={menuItem}>
-            <Link className='nav-link' to='/trans'>
-              Trans
-            </Link>
+          <motion.li variants={menuItem} className='nav-link'>
+            <Link to='/trans'>Trans</Link>
           </motion.li>
         </motion.div>
       </>
 
-      <nav className='navbar'>
-        <span className='logo'>Avussy.cc</span>
+      <motion.nav
+        className='navbar'
+        initial={{
+          y: 0,
+        }}
+        animate={{
+          y: showNavbar || isOpen ? 0 : -80,
+
+          backgroundColor:
+            lastScrollPos > 5 && !isOpen ? '#2c2c2c' : 'rgb(26, 26, 26)',
+          // shadow
+          boxShadow:
+            lastScrollPos > 5 && !isOpen
+              ? '0px 0px 10px rgba(0, 0, 0, 0.5)'
+              : '0px 0px 0px rgba(0, 0, 0, 0.5)',
+        }}
+        transition={{
+          duration: 0.3,
+        }}
+      >
+        <Link className='logo' to='/'>
+          Avussy.cc
+        </Link>
+        {/* Desktop NavMenu */}
         {!isMobile && (
-          <ul className='nav-items'>
-            <motion.li variants={menuItem} key='home'>
-              <Link className='nav-link' to='/'>
-                Home
-              </Link>
+          <motion.ul
+            className='nav-items'
+            variants={menu}
+            initial='hidden'
+            animate={'visible'}
+            exit={'hidden'}
+          >
+            <motion.li
+              variants={menuItemDesktop}
+              key='home'
+              className='nav-link'
+            >
+              <Link to='/'>Home</Link>
             </motion.li>
-            <motion.li variants={menuItem} key='trans'>
-              <Link className='nav-link' to='/trans'>
-                Trans
-              </Link>
+            <motion.li
+              variants={menuItemDesktop}
+              key='Trans'
+              className='nav-link'
+            >
+              <Link to='/trans'>Trans</Link>
             </motion.li>
-          </ul>
+          </motion.ul>
         )}
 
         {isMobile && (
@@ -91,6 +182,12 @@ const Navbar = () => {
             className='burger'
             onClick={() => {
               setIsOpen(!isOpen);
+            }}
+            onMouseEnter={() => {
+              setBurgerHover(true);
+            }}
+            onMouseLeave={() => {
+              setBurgerHover(false);
             }}
           >
             <div className='lines'>
@@ -102,32 +199,57 @@ const Navbar = () => {
                 }}
                 animate={{
                   opacity: 1,
-                  y: isOpen ? [0, 8, 8] : [8, 8, 0],
-                  rotate: isOpen ? [0, 0, 45] : [45, 0, 0],
+                  y: isOpen ? 8 : burgerHover ? -2 : 0,
+                  rotate: isOpen ? [0, 0, 0, 45] : 0,
+                }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
                 }}
               ></motion.div>
               <motion.div
                 className='line'
                 initial={{ y: 0, rotate: 0 }}
                 animate={{
-                  opacity: isOpen ? [1, 0, 0] : [0, 0, 1],
+                  opacity: isOpen ? 0 : 1,
                   rotate: 0,
                   y: 0,
                 }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
               ></motion.div>
               <motion.div
                 className='line'
                 initial={{ y: 0, rotate: 0 }}
                 animate={{
-                  y: isOpen ? [0, -8, -8] : [-8, -8, 0],
-                  rotate: isOpen ? [0, 0, -45] : [-45, 0, 0],
+                  y: isOpen ? -8 : burgerHover ? 2 : 0,
+                  rotate: isOpen ? [0, 0, 0, -45] : 0,
+
                   opacity: 1,
+                }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
                 }}
               ></motion.div>
             </div>
           </div>
         )}
-      </nav>
+      </motion.nav>
     </motion.div>
   );
 };

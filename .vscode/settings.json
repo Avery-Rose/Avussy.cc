@@ -54,5 +54,8 @@
   "eslint.alwaysShowStatus": false,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "editor.lineHeight": 0,
+  "editor.renderLineHighlight": "line",
+  "html.format.wrapLineLength": 80
 }

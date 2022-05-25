@@ -1,24 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { motion } from 'framer-motion';
+import { Tabs, Tab, TabPanel, Typography } from '@mui/material';
 
 const Trans = () => {
-  function genWords() {
-    const arr = [];
-
-    for (let i = 0; i < 15; i++) {
-      arr.push(
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis
-          explicabo accusantium necessitatibus voluptate iste eum mollitia odio
-          molestiae, esse asperiores in veniam consequuntur atque fugiat
-          repellendus. In mollitia ipsa nobis?
-        </p>
-      );
-    }
-
-    return arr;
-  }
-
   return (
     <motion.div className='page'>
       <motion.div
@@ -30,8 +15,18 @@ const Trans = () => {
           duration: 0.5,
         }}
       >
-        <h1>Trans</h1>
-        {genWords()}
+        <h1 className='gradient center'>Welcome to the Trans experience</h1>
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label='How to have your first period' />
+        </Tabs>
+        <TabPanel value={value} index={0}>
+          Find a toothbrush that you mostlikley have lying around. Now that you
+          have a toothbrush, you can insert it inside of your anus. Now, take
+          the toothbrush and brush the inside of your anus until you feel a
+          little bit of pain. When you start bleeding take the toothbrush out
+          and insert a tampon to stop the bleeding. Now, Repeat this process for
+          3 days.
+        </TabPanel>
       </motion.div>
     </motion.div>
   );

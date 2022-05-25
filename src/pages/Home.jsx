@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
-
-import { Card } from '@nextui-org/react';
+import { Typography } from '@mui/material';
 
 const Home = () => {
   return (
@@ -16,27 +15,11 @@ const Home = () => {
           duration: 0.5,
         }}
       >
-        <Card
-          shadow
-          hoverable
-          css={{
-            marginTop: '2rem',
-          }}
-        >
-          <h2
-            style={{
-              color: '#FFA3EE',
-            }}
-          >
-            Hello, my name is Avery
-          </h2>
-          <br />
-          <p>
-            I{"'"}m 19 years of age. I like to code and plan to go into the
-            field. Currently I am focusing on frontend development and design.
-            This website is going to be a project that I can practice on.
-          </p>
-        </Card>
+        <h1 className='gradient center'>Hello, my name is Avery</h1>
+        <Typography className='center'>
+          I{"'"}m currently a IT Student studying Web & Mobile Application
+          Development.
+        </Typography>
       </motion.div>
     </motion.div>
   );
