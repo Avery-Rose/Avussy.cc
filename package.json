@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@aws-amplify/cli": "^8.2.0",
+    "@commitlint/config-angular": "^17.0.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.0",

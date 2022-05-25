@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/page.css';
 
 import { motion } from 'framer-motion';
-import { Tabs, Tab, Typography, Box, Container, Skeleton } from '@mui/material';
+import { Typography, Container } from '@mui/material';
 
 const Trans = () => {
   return (
