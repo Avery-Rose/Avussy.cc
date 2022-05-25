@@ -1,391 +1,255 @@
-import React, { useState, useEffect } from 'react';
-import { BiUpArrow } from 'react-icons/bi';
-import {
-  Container,
-  Link,
-  Col,
-  Row,
-  Spacer,
-  Switch,
-  useTheme,
-  changeTheme,
-  Text,
-} from '@nextui-org/react';
+import React, { useEffect } from 'react';
 
-import { GrSun } from 'react-icons/gr';
-import { GrMoon } from 'react-icons/gr';
+import { Link } from 'react-router-dom';
+import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-const isSelected = (link) => {
-  return window.location.pathname === link;
-};
+import '../styles/navbar.css';
 
-const NavItem = (props) => {
-  const { children, href, key } = props;
-  return (
-    <Col
-      key={key}
-      justify={'center'}
-      css={{
-        width: 'fit-content',
-        margin: '0px 10px',
-        padding: '10px',
-        background: '$secondaryBackground',
-      }}
-    >
-      <Text
-        onClick={() => {
-          window.location.href = href;
-        }}
-        key={key}
-        href={href}
-        color={isSelected(href) ? 'primary' : 'secondary'}
-        css={{
-          cursor: 'pointer',
-          fontSize: '1.5rem',
-          letterSpacing: '0.1rem',
-          textTransform: 'uppercase',
-          fontWeight: 'bold',
-          display: 'inline-block',
-          position: 'relative',
+import { motion } from 'framer-motion';
+import { Fab } from '@mui/material';
 
-          transition: 'transition 0.2s ease-in-out, opacity 0.25s ease-out',
-          opacity: isSelected(href) ? 1 : 0.5,
-          transformOrigin: 'bottom right',
+const Navbar = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const [showNavbar, setShowNavbar] = React.useState(true);
 
-          '&:after': {
-            content: '""',
-            position: 'absolute',
-            width: '100%',
-            transform: 'scaleX(0)',
-            height: '2px',
-            bottom: '0',
-            left: '0',
-            transformOrigin: 'bottom right',
-
-            transition: 'transform 0.25s ease-out',
-
-            // linear background gradient
-            background: '$secondary',
-          },
-
-          '&:active': {
-            color: '$primary',
-            transition: 'all 0.25s ease-out',
-          },
-
-          '&:hover': {
-            '&:after': {
-              transform: isSelected(href) ? 'scaleX(0)' : 'scaleX(1)',
-              transformOrigin: 'bottom left',
-            },
-            transformOrigin: 'bottom left',
-            transition: 'transform 0.25 ease-out',
-            opacity: '1',
-          },
-        }}
-      >
-        {children}
-      </Text>
-    </Col>
-  );
-};
-
-const Account = (props) => {
-  const { user, handleLogin, css } = props;
-  useEffect(() => {
-    handleLogin({}, (res) => {
-      if (!res.success) {
-      }
-    });
-  }, [user, handleLogin]);
-  return user ? (
-    <Link key={'logout'} href={'/logout'} color={'error'} css={css}>
-      Logout
-    </Link>
-  ) : (
-    <Link key={'login'} href={'/login'} color={'text'} css={css}>
-      Login
-    </Link>
-  );
-};
-
-/* const AccountMenu = (props) => {
-  return (
-    <Container>
-      <BiUserCircle />
-    </Container>
-  );
-}; */
-
-const NavBar = (props) => {
-  const { user, handleLogin } = props;
-  const nav = [
-    {
-      name: 'Home',
-      link: '/',
-    },
-    {
-      name: 'Trans Guide',
-      link: '/trans',
-    },
-  ];
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 768);
-  // eslint-disable-next-line no-unused-vars
-  const [windowDimentions, setWindowDimentions] = useState(
-    getWindowDimensions()
-  );
+  const [burgerHover, setBurgerHover] = React.useState(false);
+  const [lastScrollPos, setLastScrollPos] = React.useState(0);
 
   useEffect(() => {
-    function handleResize() {
-      setWindowDimentions(getWindowDimensions());
-      if (getWindowDimensions().width >= 768) {
-        setIsMobile(false);
-        setIsOpen(false);
+    setIsMobile(window.innerWidth < 768);
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollPos) {
+        setShowNavbar(false);
       } else {
-        setIsMobile(true);
+        setShowNavbar(true);
       }
-    }
+
+      setLastScrollPos(window.scrollY);
+
+      if (window.scrollY > 100) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+        setShowNavbar(true);
+      }
+    };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
-  useEffect(() => {
-    const curTheme = window.localStorage.getItem('data-theme') || 'dark';
-    changeTheme(curTheme);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [lastScrollPos]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const handleNavClick = () => setIsOpen(!isOpen);
-
-  const handleBurgerAnimation = () => {
-    if (!isOpen) {
-      return 'transform-gpu rotate-180';
-    }
-    return 'transform-gpu rotate-0 text-lgbtq-pink';
+  const menu = {
+    hidden: { y: '-100vh', transition: { duration: 0.5, delay: 0.2 } },
+    visible: { y: 0, transition: { duration: 0.5 } },
   };
 
-  // theme
-  const { type, isDark } = useTheme();
+  const menuItem = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+      transition: { duration: 0.5 },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.5, type: 'spring', stiffness: 100 },
+    },
+  };
 
-  const handleChange = () => {
-    const nextTheme = isDark ? 'light' : 'dark';
-    localStorage.setItem('dark-theme', nextTheme);
-
-    // useTheme,
-    // changeTheme,
-    changeTheme(nextTheme);
+  const menuItemDesktop = {
+    hidden: {
+      opacity: 0,
+      y: -100,
+      transition: { duration: 0.5 },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.3, type: 'spring', stiffness: 60 },
+    },
   };
 
   return (
-    <div>
-      <div
-        className='select-none fixed w-full h-[80px] flex justify-between items-center text-white z-10'
-        style={{
-          backgroundColor: 'var(--nextui-colors-secondaryBackground)',
+    <motion.div>
+      <>
+        <motion.div
+          className='scroll-top'
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+          initial={{
+            scale: 0,
+          }}
+          animate={{
+            scale: showScrollTop ? 1 : 0,
+          }}
+          transition={
+            showScrollTop
+              ? { type: 'spring', stiffness: 100 }
+              : { duration: 0.2 }
+          }
+        >
+          <Fab className='scroll-top-icon' aria-label='go top' color='primary'>
+            <UpIcon />
+          </Fab>
+        </motion.div>
+        {/* Mobile NavMenu */}
+        <motion.div
+          className='burger-menu'
+          variants={menu}
+          initial='hidden'
+          animate={isOpen ? 'visible' : 'hidden'}
+          exit={'hidden'}
+        >
+          <motion.li variants={menuItem} className='nav-link'>
+            <Link to='/'>Home</Link>
+          </motion.li>
+          <motion.li variants={menuItem} className='nav-link'>
+            <Link to='/trans'>Trans</Link>
+          </motion.li>
+        </motion.div>
+      </>
+
+      <motion.nav
+        className='navbar'
+        initial={{
+          y: 0,
+        }}
+        animate={{
+          y: showNavbar || isOpen ? 0 : -80,
+
+          backgroundColor:
+            lastScrollPos > 5 && !isOpen ? '#2c2c2c' : 'rgb(26, 26, 26)',
+          // shadow
+          boxShadow:
+            lastScrollPos > 5 && !isOpen
+              ? '0px 0px 10px rgba(0, 0, 0, 0.5)'
+              : '0px 0px 0px rgba(0, 0, 0, 0.5)',
+        }}
+        transition={{
+          duration: 0.3,
         }}
       >
-        <div
-          className='group cursor-pointer z-10  px-4'
-          onClick={() => {
-            window.location.href = '/';
-          }}
-        >
-          <Link
-            href='/'
-            color={'text'}
-            css={{
-              userSelect: 'none',
-              fontSize: '2.5rem',
-            }}
+        <Link className='logo' to='/'>
+          Avussy.cc
+        </Link>
+        {/* Desktop NavMenu */}
+        {!isMobile && (
+          <motion.ul
+            className='nav-items'
+            variants={menu}
+            initial='hidden'
+            animate={'visible'}
+            exit={'hidden'}
           >
-            Avussy.cc
-          </Link>
-        </div>
-        {/* menu */}
-        {isMobile ? null : (
-          <Container>
-            <Row
-              css={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'end',
-                alignItems: 'center',
-              }}
+            <motion.li
+              variants={menuItemDesktop}
+              key='home'
+              className='nav-link'
             >
-              {nav.map((item, index) => {
-                return (
-                  <NavItem
-                    key={item.name + index}
-                    href={item.link}
-                    isDark={isDark}
-                  >
-                    {item.name}
-                  </NavItem>
-                );
-              })}
-              {user ? (
-                <Col
-                  key={'account'}
-                  css={{
-                    display: 'flex',
-                    width: 'fit-content',
-                    justifyContent: 'end',
-                    alignItems: 'end',
-                    padding: 10,
-                  }}
-                >
-                  <Link
-                    key={'account'}
-                    href={'/account'}
-                    block
-                    color={isSelected('/account') ? 'primary' : 'text'}
-                    css={{
-                      fontSize: '1.5rem',
-                      letterSpacing: '0.1rem',
-                    }}
-                  >
-                    {'Account'}
-                  </Link>
-                </Col>
-              ) : (
-                <></>
-              )}
-            </Row>
-          </Container>
+              <Link to='/'>Home</Link>
+            </motion.li>
+            <motion.li
+              variants={menuItemDesktop}
+              key='Trans'
+              className='nav-link'
+            >
+              <Link to='/trans'>Trans</Link>
+            </motion.li>
+          </motion.ul>
         )}
 
-        {/* Hamburger */}
-        <div
-          onClick={handleNavClick}
-          className='md:hidden bg-transparent hover:bg-opacity-50 hover:bg-black hover:text-lgbtq-blue z-10 h-full w-[80px] flex justify-center items-center duration-300'
-        >
-          <BiUpArrow
-            size={35}
-            className={'duration-300 ' + handleBurgerAnimation()}
-          />
-        </div>
-        <div className='w-full h-1 top-[80px] left-0 absolute bg-gradient-to-r from-[#66faff] via-[#ff66f7] to-[#66faff] bg-200% animate-slideBackGround'></div>
-      </div>
-      {/* Mobile menu */}
-      {isOpen ? (
-        <Container
-          justify='center'
-          alignContent='center'
-          css={{
-            position: 'absolute',
-            top: '81px',
-            left: '0',
-            width: '100vw',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'evenly',
-            height: 'calc(90vh)',
-            minWidth: '100vw',
-            maxWidth: '100vw',
-            m: '0',
-            p: '0',
-            overflowY: 'scroll',
-            overflowX: 'hidden',
-            // blur the background
-            // blur gradient
-            backdropFilter: 'blur(10px)',
-            backgroundImage:
-              'linear-gradient(to bottom, rgb(0,0,0, 1), rgb(0,0,0,0.6))',
-            zIndex: '8',
-          }}
-          className='md:hidden overflow-scroll'
-        >
-          <Col
-            css={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
+        {isMobile && (
+          <div
+            className='burger'
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+            onMouseEnter={() => {
+              setBurgerHover(true);
+            }}
+            onMouseLeave={() => {
+              setBurgerHover(false);
             }}
           >
-            {nav.map((item, index) => {
-              return (
-                <Row justify='center' key={index}>
-                  <Link
-                    key={index}
-                    href={item.link}
-                    block
-                    color={isSelected(item.link) ? 'primary' : 'text'}
-                    css={{
-                      textAlign: 'center',
-                      fontSize: '3rem',
-                    }}
-                    className={`animate-[drop-in ${index}]`}
-                  >
-                    {item.name}
-                  </Link>
-                </Row>
-              );
-            })}
-          </Col>
-        </Container>
-      ) : null}
-    </div>
+            <div className='lines'>
+              <motion.div
+                className='line'
+                initial={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: isOpen ? 8 : burgerHover ? -2 : 0,
+                  rotate: isOpen ? [0, 0, 0, 45] : 0,
+                }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                }}
+              ></motion.div>
+              <motion.div
+                className='line'
+                initial={{ y: 0, rotate: 0 }}
+                animate={{
+                  opacity: isOpen ? 0 : 1,
+                  rotate: 0,
+                  y: 0,
+                }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+              ></motion.div>
+              <motion.div
+                className='line'
+                initial={{ y: 0, rotate: 0 }}
+                animate={{
+                  y: isOpen ? -8 : burgerHover ? 2 : 0,
+                  rotate: isOpen ? [0, 0, 0, -45] : 0,
+
+                  opacity: 1,
+                }}
+                exit={{
+                  y: 0,
+                  rotate: 0,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                }}
+              ></motion.div>
+            </div>
+          </div>
+        )}
+      </motion.nav>
+    </motion.div>
   );
 };
 
-export default NavBar;
-
-/* <Spacer />
-            <Row justify='center' key={'account'}>
-              <Account
-                user={user}
-                handleLogin={handleLogin}
-                css={{ textAlign: 'center', fontSize: '3rem' }}
-              />
-            </Row> */
-
-/* <Col
-                css={{
-                  display: 'flex',
-                  width: 'fit-content',
-                  justifyContent: 'end',
-                  alignItems: 'end',
-                  padding: 10,
-                }}
-              >
-                <Account
-                  user={user}
-                  handleLogin={handleLogin}
-                  css={{ fontSize: '1.5rem', letterSpacing: '0.1rem' }}
-                />
-              </Col>*/
-
-/* <Container>
-          <Switch
-            iconOff={
-              <GrMoon
-                value={{
-                  fontSize: '1.5rem',
-                  color: isDark ? '#fff' : '#1a1a1a',
-                }}
-              />
-            }
-            iconOn={
-              <GrSun
-                value={{
-                  fontSize: '1.5rem',
-                  color: isDark ? '#1a1a1a' : '#fff',
-                }}
-              />
-            }
-            initialChecked={isDark}
-            onChange={(e) => {
-              handleChange();
-            }}
-          />
-          <Text>{type}</Text>
-        </Container> */
+export default Navbar;
