@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
-
-import { BsFillArrowUpCircleFill } from 'react-icons/bs';
+import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import '../styles/navbar.css';
 
 import { motion } from 'framer-motion';
+import { Fab } from '@mui/material';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -21,14 +21,10 @@ const Navbar = () => {
     setIsMobile(window.innerWidth < 768);
 
     const handleScroll = () => {
-      console.log(window.scrollY, lastScrollPos);
-
       if (window.scrollY > lastScrollPos) {
         setShowNavbar(false);
-        console.log('scrolling down');
       } else {
         setShowNavbar(true);
-        console.log('scrolling up');
       }
 
       setLastScrollPos(window.scrollY);
@@ -109,7 +105,9 @@ const Navbar = () => {
               : { duration: 0.2 }
           }
         >
-          <BsFillArrowUpCircleFill className='scroll-top-icon' />
+          <Fab className='scroll-top-icon' aria-label='go top' color='primary'>
+            <UpIcon />
+          </Fab>
         </motion.div>
         {/* Mobile NavMenu */}
         <motion.div

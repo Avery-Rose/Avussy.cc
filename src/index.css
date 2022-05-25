@@ -4,7 +4,7 @@ body {
 }
 
 * {
-  z-index: -1;
+  z-index: 1;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -35,7 +35,7 @@ html {
 .page {
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,7 +45,7 @@ html {
 }
 
 .page .content {
-  z-index: -1;
+  z-index: 1;
   padding-top: 80px;
   max-width: 80%;
   min-height: 100%;
