@@ -123,6 +123,9 @@ const Navbar = () => {
           <motion.li variants={menuItem} className='nav-link'>
             <Link to='/trans'>Trans</Link>
           </motion.li>
+          <motion.li variants={menuItem} className='nav-link'>
+            <Link to='/dataset'>Profanity Set</Link>
+          </motion.li>
         </motion.div>
       </>
 
@@ -178,6 +181,14 @@ const Navbar = () => {
               className='nav-link'
             >
               <Link to='/trans'>Trans</Link>
+            </motion.li>
+
+            <motion.li
+              variants={menuItemDesktop}
+              key='DataSet'
+              className='nav-link'
+            >
+              <Link to='/dataset'>Profanity Set</Link>
             </motion.li>
           </motion.ul>
         )}

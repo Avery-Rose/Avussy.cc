@@ -10,6 +10,7 @@ import Navbar from './NavBar';
 import Home from '../pages/Home';
 import Trans from '../pages/Trans';
 import NotFound from '../pages/NotFound';
+import ProfanitySet from '../pages/ProfanitySet';
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -43,6 +44,15 @@ const AnimatedRoute = () => {
               <>
                 <Navbar />
                 <NotFound />
+              </>
+            }
+          />
+          <Route
+            path='dataset'
+            element={
+              <>
+                <Navbar />
+                <ProfanitySet />
               </>
             }
           />

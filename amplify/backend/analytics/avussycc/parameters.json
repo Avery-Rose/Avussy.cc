@@ -1,0 +1,18 @@
+{
+  "appName": "avussycc",
+  "roleName": "pinpointLambdaRolebdddec98",
+  "cloudformationPolicyName": "cloudformationPolicybdddec98",
+  "cloudWatchPolicyName": "cloudWatchPolicybdddec98",
+  "pinpointPolicyName": "pinpointPolicybdddec98",
+  "authPolicyName": "pinpoint_amplify_bdddec98",
+  "unauthPolicyName": "pinpoint_amplify_bdddec98",
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authRoleArn": {
+    "Fn::GetAtt": ["AuthRole", "Arn"]
+  }
+}

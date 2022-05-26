@@ -23,5 +23,11 @@
         "verificationMechanisms": ["EMAIL"]
       }
     }
+  },
+  "analytics": {
+    "avussycc": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
