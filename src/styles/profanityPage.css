@@ -13,6 +13,7 @@
 .page .profanity-content {
   z-index: 1;
   padding-top: 80px;
+  padding-bottom: 80px;
   max-width: 80%;
   min-height: 100%;
   margin: 0 auto;
@@ -23,7 +24,6 @@
 @media screen and (max-width: 768px) {
   .page .profanity-content {
     max-width: 90%;
-    min-width: 100vw;
     min-height: 100vh;
   }
 }
