@@ -55,11 +55,13 @@ h2 {
 
 .page a {
   text-decoration: none;
-  color: #ff57ff;
+  color: #ffd5fb;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .page a:hover {
-  color: #ff4ecd;
+  color: #ff8df4;
 }
 
 .socials {
@@ -67,9 +69,10 @@ h2 {
 }
 
 .socials .social a {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,14 +82,19 @@ h2 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.socials .social a:hover {
-  color: #a96bff !important;
+@media screen and (max-width: 768px) {
+  .socials .social a {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
 }
 
 .socials .social .icon {

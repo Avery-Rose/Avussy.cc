@@ -33,7 +33,6 @@ const NotFound = () => {
             animate={{
               opacity: [1, 0.5],
             }}
-            exit={{ opacity: 0 }}
             drag
             dragSnapToOrigin
             transition={{

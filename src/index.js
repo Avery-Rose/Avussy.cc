@@ -1,20 +1,23 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+
 import AnimatedRoute from './components/AnimatedRoute';
 
+import './styles/index.css';
+
 import {
-  ThemeProvider,
   createTheme,
   StyledEngineProvider,
+  ThemeProvider,
 } from '@mui/material/styles';
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#ff57ff',
+      main: '#ffd5fb',
+      dark: '#ff8df4',
     },
   },
 });
@@ -28,6 +31,7 @@ Amplify.configure(awsconfig);
 */
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Router>
     <StyledEngineProvider injectFirst>

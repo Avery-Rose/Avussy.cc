@@ -1,3 +1,6 @@
+$primary: #ffd5fb;
+$secondary: #ff8df4;
+
 .split {
   display: flex;
   justify-content: center;
@@ -37,10 +40,13 @@ h2 {
 .page {
   a {
     text-decoration: none;
-    color: #ff57ff;
+
+    color: $primary;
+
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      color: #ff4ecd;
+      color: $secondary;
     }
   }
 }
@@ -48,15 +54,16 @@ h2 {
   margin-top: 10px;
   .social {
     a {
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        color: #a96bff !important;
-      }
-      cursor: pointer;
+      margin: auto;
+      width: fit-content;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: row;
+      flex-direction: column;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: row;
+      }
     }
 
     .icon {

@@ -1,5 +1,7 @@
 {
   "files.exclude": {
+    "src/styles/*.css.map": true,
+    "src/styles/*.css": true,
     "amplify/.config": true,
     "amplify/**/*-parameters.json": true,
     "amplify/**/amplify.state": true,
@@ -57,5 +59,6 @@
   "eslint.run": "onType",
   "editor.lineHeight": 0,
   "editor.renderLineHighlight": "line",
-  "html.format.wrapLineLength": 80
+  "html.format.wrapLineLength": 80,
+  "dart.autoImportCompletions": true
 }

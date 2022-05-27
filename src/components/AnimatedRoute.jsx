@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../index.css';
-
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 

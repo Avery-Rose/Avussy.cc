@@ -6,6 +6,16 @@ import { Container } from '@mui/material';
 
 import { FaGithub, FaSteam, FaTwitter, FaInstagram } from 'react-icons/fa';
 
+function SocialLink({ link, children }) {
+  return (
+    <Grid item xs={12} sm={6} className='social'>
+      <a href={link} rel='noopener noreferrer' target='_blank'>
+        {children}
+      </a>
+    </Grid>
+  );
+}
+
 const Home = () => {
   return (
     <motion.div className='page'>
@@ -29,46 +39,22 @@ const Home = () => {
             Development.
           </Typography>
           <Grid container spacing={3} className='socials'>
-            <Grid item xs={12} sm={6} className='social'>
-              <a
-                href='https://github.com/Averyyyyyyyy'
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <FaGithub className='icon' size={32} />
-                Github
-              </a>
-            </Grid>
-            <Grid item xs={12} sm={6} className='social'>
-              <a
-                href='https://steamcommunity.com/id/cummyavery/'
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <FaSteam className='icon' size={32} />
-                Steam
-              </a>
-            </Grid>
-            <Grid item xs={12} sm={6} className='social'>
-              <a
-                href='https://twitter.com/cattgirlava'
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <FaTwitter className='icon' size={32} />
-                Twitter
-              </a>
-            </Grid>
-            <Grid item xs={12} sm={6} className='social'>
-              <a
-                href='https://instagram.com/cattgirlava'
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <FaInstagram className='icon' size={32} />
-                Instagram
-              </a>
-            </Grid>
+            <SocialLink link={'https://github.com/Averyyyyyyyy'}>
+              <FaGithub className='icon' size={32} />
+              Github
+            </SocialLink>
+            <SocialLink link={'https://steamcommunity.com/id/cummyavery/'}>
+              <FaSteam className='icon' size={32} />
+              Steam
+            </SocialLink>
+            <SocialLink link={'https://twitter.com/cattgirlava'}>
+              <FaTwitter className='icon' size={32} />
+              Twitter
+            </SocialLink>
+            <SocialLink link={'https://www.instagram.com/cattgirlava/'}>
+              <FaInstagram className='icon' size={32} />
+              Instagram
+            </SocialLink>
           </Grid>
         </Container>
       </motion.div>

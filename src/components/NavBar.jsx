@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
-import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import '../styles/navbar.css';
 
 import { motion } from 'framer-motion';
-import { Fab } from '@mui/material';
+import { DesktopItem } from './DesktopItem';
+import { menu } from './Varients';
+import { ScrollTop } from './ScrollTop';
+import { BurgerMenu } from './BurgerMenu';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -54,79 +56,12 @@ const Navbar = () => {
     };
   }, [lastScrollPos]);
 
-  const menu = {
-    hidden: { y: '-100vh', transition: { duration: 0.5, delay: 0.2 } },
-    visible: { y: 0, transition: { duration: 0.5, staggerChildren: 0.2 } },
-  };
-
-  const menuItem = {
-    hidden: {
-      opacity: 0,
-      y: 100,
-      transition: { duration: 0.5 },
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.5, type: 'spring', stiffness: 100 },
-    },
-  };
-
-  const menuItemDesktop = {
-    hidden: {
-      opacity: 0,
-      y: -100,
-      transition: { duration: 0.5 },
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.3, type: 'spring', stiffness: 60 },
-    },
-  };
-
   return (
     <motion.div>
       <>
-        <motion.div
-          className='scroll-top'
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-          initial={{
-            scale: 0,
-          }}
-          animate={{
-            scale: showScrollTop ? 1 : 0,
-          }}
-          transition={
-            showScrollTop
-              ? { type: 'spring', stiffness: 100 }
-              : { duration: 0.2 }
-          }
-        >
-          <Fab className='scroll-top-icon' aria-label='go top' color='primary'>
-            <UpIcon />
-          </Fab>
-        </motion.div>
+        <ScrollTop showScrollTop={showScrollTop}></ScrollTop>
         {/* Mobile NavMenu */}
-        <motion.div
-          className='burger-menu'
-          variants={menu}
-          initial='hidden'
-          animate={isOpen ? 'visible' : 'hidden'}
-          exit={'hidden'}
-        >
-          <motion.li variants={menuItem} className='nav-link'>
-            <Link to='/'>Home</Link>
-          </motion.li>
-          <motion.li variants={menuItem} className='nav-link'>
-            <Link to='/trans'>Trans</Link>
-          </motion.li>
-          <motion.li variants={menuItem} className='nav-link'>
-            <Link to='/dataset'>Profanity Set</Link>
-          </motion.li>
-        </motion.div>
+        <BurgerMenu isOpen={isOpen}></BurgerMenu>
       </>
 
       <motion.nav
@@ -168,28 +103,9 @@ const Navbar = () => {
             animate={'visible'}
             exit={'hidden'}
           >
-            <motion.li
-              variants={menuItemDesktop}
-              key='home'
-              className='nav-link'
-            >
-              <Link to='/'>Home</Link>
-            </motion.li>
-            <motion.li
-              variants={menuItemDesktop}
-              key='Trans'
-              className='nav-link'
-            >
-              <Link to='/trans'>Trans</Link>
-            </motion.li>
-
-            <motion.li
-              variants={menuItemDesktop}
-              key='DataSet'
-              className='nav-link'
-            >
-              <Link to='/dataset'>Profanity Set</Link>
-            </motion.li>
+            <DesktopItem to='/'>Home</DesktopItem>
+            <DesktopItem to='/trans'>Trans</DesktopItem>
+            <DesktopItem to='/dataset'>Profanity</DesktopItem>
           </motion.ul>
         )}
 

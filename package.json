@@ -12,7 +12,7 @@
     "lint:prettier": "yarn run prettier --write src/",
     "prepare": "husky install",
     "sort:package-json": "yarn sort-package-json",
-    "start": "react-scripts start",
+    "start": "yarn run lint && react-scripts start",
     "test": "react-scripts test"
   },
   "lint-staged": {

@@ -8,8 +8,8 @@ import { DataGrid } from '@mui/x-data-grid';
 
 import axios from 'axios';
 
+import { Box, LinearProgress, Typography } from '@mui/material';
 import { parse } from 'csv-parse/browser/esm';
-import { LinearProgress, Typography, Box } from '@mui/material';
 
 function LinearProgressWithLabel(props) {
   return (

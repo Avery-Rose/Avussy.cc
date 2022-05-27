@@ -89,15 +89,20 @@ nav-items {
   background-color: $navbackground;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+
+  overflow: auto;
 
   .nav-link {
     a {
       z-index: 100;
-      font-size: 10vw;
-      padding: 3rem;
+      font-size: calc(2rem + 1vw);
+      // text spacing
+      letter-spacing: 5vw;
+
+      text-align: center;
     }
   }
 }
@@ -125,17 +130,10 @@ nav-items {
 .scroll-top {
   z-index: 100;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 75px;
-  height: 75px;
-
-  @media screen and (max-width: 768px) {
-    right: 10px;
-    bottom: 10px;
-    width: 50px;
-    height: 50px;
-  }
+  bottom: calc(100vh / 16);
+  right: calc(100vw / 16);
+  width: 50px;
+  height: 50px;
 
   .scroll-top-icon {
     width: 100%;
