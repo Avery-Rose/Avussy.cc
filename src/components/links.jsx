@@ -3,8 +3,8 @@ import { MobileItem } from './MobileItem';
 
 export const links = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
+  { name: 'Trans', path: '/trans' },
+  { name: 'Profanity', path: '/dataset' },
 ];
 export const generateLinks = (links) =>
   links.map((link) => (
