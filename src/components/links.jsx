@@ -1,14 +1,14 @@
 import React from 'react';
-import { MobileItem } from './MobileItem';
+import { NavItem } from './NavItem';
 
 export const links = [
   { name: 'Home', path: '/' },
   { name: 'Trans', path: '/trans' },
   { name: 'Profanity', path: '/dataset' },
 ];
-export const generateLinks = (links) =>
+export const generateLinks = (links, isMobile) =>
   links.map((link) => (
-    <MobileItem key={link.name} to={link.path}>
+    <NavItem key={link.name} to={link.path} isMobile={isMobile}>
       {link.name}
-    </MobileItem>
+    </NavItem>
   ));

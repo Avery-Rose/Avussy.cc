@@ -41,14 +41,7 @@ $navbackground: #1a1a1a;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-}
-
-nav-items {
   list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: row;
 }
 
 .nav-link {
@@ -100,7 +93,7 @@ nav-items {
       z-index: 100;
       font-size: calc(2rem + 1vw);
       // text spacing
-      letter-spacing: 5vw;
+      letter-spacing: 1vw;
 
       text-align: center;
     }

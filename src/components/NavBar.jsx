@@ -5,17 +5,15 @@ import { Link } from 'react-router-dom';
 import '../styles/navbar.css';
 
 import { motion } from 'framer-motion';
-import { DesktopItem } from './DesktopItem';
-import { menu } from './Varients';
 import { ScrollTop } from './ScrollTop';
-import { BurgerMenu } from './BurgerMenu';
+import { BurgerItem } from './BurgerList';
+import NavProvider from './NavProvider';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [showScrollTop, setShowScrollTop] = React.useState(false);
   const [showNavbar, setShowNavbar] = React.useState(true);
-
   const [burgerHover, setBurgerHover] = React.useState(false);
   const [lastScrollPos, setLastScrollPos] = React.useState(0);
 
@@ -59,9 +57,8 @@ const Navbar = () => {
   return (
     <motion.div>
       <>
-        <ScrollTop showScrollTop={showScrollTop}></ScrollTop>
-        {/* Mobile NavMenu */}
-        <BurgerMenu isOpen={isOpen}></BurgerMenu>
+        <ScrollTop showScrollTop={showScrollTop} />
+        <BurgerItem isOpen={isOpen}></BurgerItem>
       </>
 
       <motion.nav
@@ -94,93 +91,13 @@ const Navbar = () => {
         <Link className='logo' to='/'>
           Avussy.cc
         </Link>
-        {/* Desktop NavMenu */}
-        {!isMobile && (
-          <motion.ul
-            className='nav-items'
-            variants={menu}
-            initial='hidden'
-            animate={'visible'}
-            exit={'hidden'}
-          >
-            <DesktopItem to='/'>Home</DesktopItem>
-            <DesktopItem to='/trans'>Trans</DesktopItem>
-            <DesktopItem to='/dataset'>Profanity</DesktopItem>
-          </motion.ul>
-        )}
-
-        {isMobile && (
-          <div
-            className='burger'
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-            onMouseEnter={() => {
-              setBurgerHover(true);
-            }}
-            onMouseLeave={() => {
-              setBurgerHover(false);
-            }}
-          >
-            <div className='lines'>
-              <motion.div
-                className='line'
-                initial={{
-                  y: 0,
-                  rotate: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: isOpen ? 8 : burgerHover ? -2 : 0,
-                  rotate: isOpen ? [0, 0, 0, 45] : 0,
-                }}
-                exit={{
-                  y: 0,
-                  rotate: 0,
-                }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 100,
-                }}
-              ></motion.div>
-              <motion.div
-                className='line'
-                initial={{ y: 0, rotate: 0 }}
-                animate={{
-                  opacity: isOpen ? 0 : 1,
-                  rotate: 0,
-                  y: 0,
-                }}
-                exit={{
-                  y: 0,
-                  rotate: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-              ></motion.div>
-              <motion.div
-                className='line'
-                initial={{ y: 0, rotate: 0 }}
-                animate={{
-                  y: isOpen ? -8 : burgerHover ? 2 : 0,
-                  rotate: isOpen ? [0, 0, 0, -45] : 0,
-
-                  opacity: 1,
-                }}
-                exit={{
-                  y: 0,
-                  rotate: 0,
-                }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 100,
-                }}
-              ></motion.div>
-            </div>
-          </div>
-        )}
+        <NavProvider
+          isMobile={isMobile}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          burgerHover={burgerHover}
+          setBurgerHover={setBurgerHover}
+        />
       </motion.nav>
     </motion.div>
   );

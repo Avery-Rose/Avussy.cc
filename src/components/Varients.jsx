@@ -21,7 +21,7 @@ export const mobileItem = {
   },
 };
 
-export const menuItemDesktop = {
+export const desktopItem = {
   hidden: {
     opacity: 0,
     y: -100,
