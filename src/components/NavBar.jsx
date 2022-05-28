@@ -69,16 +69,12 @@ const Navbar = () => {
         }}
         animate={{
           y: showNavbar || isOpen ? 0 : -80,
-          backgroundColor: isOpen
-            ? '#1a1a1a'
-            : lastScrollPos > 5
-            ? '#3c3c3c'
-            : '#2c2c2c',
+          backgroundColor: isOpen ? '#1a1a1a' : '#2c2c2c',
           // backgroundColor:  !isOpen ? '#2c2c2c' : '#1a1a1a',
           // shadow
           boxShadow:
-            lastScrollPos > 5 && !isOpen
-              ? '0px 0px 10px rgba(0, 0, 0, 0.5)'
+            lastScrollPos > 5 && !isOpen && showNavbar
+              ? '0px 0px 15px rgba(0, 0, 0, 0.5)'
               : '0px 0px 0px rgba(0, 0, 0, 0.5)',
         }}
         exit={{

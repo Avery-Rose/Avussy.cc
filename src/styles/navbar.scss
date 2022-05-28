@@ -129,6 +129,8 @@ $navbackground: #1a1a1a;
   height: 50px;
 
   .scroll-top-icon {
+    filter: drop-shadow(0 0 5px rgb(0, 0, 0, 0.5));
+
     width: 100%;
     height: 100%;
     svg {
