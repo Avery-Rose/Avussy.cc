@@ -33,3 +33,11 @@ export const desktopItem = {
     transition: { delay: 0.3, type: 'spring', stiffness: 60 },
   },
 };
+
+export const staggerContainer = {
+  visible: {
+    transition: {
+      staggerChildren: 0.025,
+    },
+  },
+};

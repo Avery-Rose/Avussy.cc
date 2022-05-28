@@ -49,25 +49,30 @@ h2 {
       color: $secondary;
     }
   }
+
+  margin-bottom: 100px;
 }
 .socials {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   .social {
     a {
       margin: auto;
-      width: fit-content;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
 
       @media screen and (max-width: 768px) {
-        flex-direction: row;
+        flex-direction: column;
       }
     }
 
     .icon {
-      margin: 0 10px;
+      margin: auto;
     }
   }
 }

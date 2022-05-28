@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import { Grid, Typography } from '@mui/material';
 import { Container } from '@mui/material';
 
+import { staggerContainer } from '../components/Varients';
+
+import AnimatedCharacters from '../components/AnimatedCharacters';
+
 import { FaGithub, FaSteam, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 function SocialLink({ link, children }) {
@@ -15,6 +19,43 @@ function SocialLink({ link, children }) {
     </Grid>
   );
 }
+
+const SocialItem = (props) => {
+  const [isHover, setHover] = React.useState(false);
+
+  const placeholderText = [{ type: 'heading2', text: props.name }];
+
+  return (
+    <SocialLink link={props.link}>
+      <motion.div
+        onHoverStart={() => setHover(true)}
+        onHoverEnd={() => setHover(false)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
+          flexDirection: 'column',
+        }}
+      >
+        <motion.div
+          initial='hidden'
+          animate={isHover ? 'visible' : 'hidden'}
+          variants={staggerContainer}
+          style={{
+            width: 'fit-content',
+          }}
+        >
+          {placeholderText.map((item, index) => {
+            return <AnimatedCharacters {...item} key={index} />;
+          })}
+        </motion.div>
+        {props.icon}
+      </motion.div>
+    </SocialLink>
+  );
+};
 
 const Home = () => {
   return (
@@ -39,22 +80,29 @@ const Home = () => {
             Development.
           </Typography>
           <Grid container spacing={3} className='socials'>
-            <SocialLink link={'https://github.com/Averyyyyyyyy'}>
-              <FaGithub className='icon' size={32} />
-              Github
-            </SocialLink>
-            <SocialLink link={'https://steamcommunity.com/id/cummyavery/'}>
-              <FaSteam className='icon' size={32} />
-              Steam
-            </SocialLink>
-            <SocialLink link={'https://twitter.com/cattgirlava'}>
-              <FaTwitter className='icon' size={32} />
-              Twitter
-            </SocialLink>
-            <SocialLink link={'https://www.instagram.com/cattgirlava/'}>
-              <FaInstagram className='icon' size={32} />
-              Instagram
-            </SocialLink>
+            <SocialItem
+              icon={<FaGithub className='icon' size={32} />}
+              link={'https://github.com/Averyyyyyyyy'}
+              name='Averyyyyyyyy'
+            />
+
+            <SocialItem
+              icon={<FaSteam className='icon' size={32} />}
+              link='https://steamcommunity.com/id/cummyavery/'
+              name='Avery'
+            />
+
+            <SocialItem
+              icon={<FaTwitter className='icon' size={32} />}
+              link='https://twitter.com/cattgirlava'
+              name='@CattGirlAva'
+            />
+
+            <SocialItem
+              icon={<FaInstagram className='icon' size={32} />}
+              link='https://www.instagram.com/cattgirlava/'
+              name='@CattGirlAva'
+            />
           </Grid>
         </Container>
       </motion.div>
