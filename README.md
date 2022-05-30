@@ -5,6 +5,8 @@
 
 [![DeepSource](https://deepsource.io/gh/Averyyyyyyyy/Avussy.cc.svg/?label=active+issues&show_trend=true&token=MRcUfe-GIfocG-JOxdh7C7qB)](https://deepsource.io/gh/Averyyyyyyyy/Avussy.cc/?ref=repository-badge)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/Averyyyyyyyy/Avussy.cc?branch=main)](https://bettercodehub.com/)
+
 ---
 
 ## Setup
