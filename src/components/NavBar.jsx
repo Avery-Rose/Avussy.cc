@@ -58,7 +58,7 @@ const Navbar = () => {
     <motion.div>
       <>
         <ScrollTop showScrollTop={showScrollTop} />
-        <BurgerItem isOpen={isOpen}></BurgerItem>
+        <BurgerItem isOpen={isOpen} />
       </>
 
       <motion.nav
