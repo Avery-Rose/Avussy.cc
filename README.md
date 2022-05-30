@@ -3,6 +3,8 @@
 [Coding Stats For this project](https://wakatime.com/@Averyyyyyyyy/projects/ufsztpppcp?start=2022-05-15&end=2022-05-21)
 [![wakatime](https://wakatime.com/badge/user/dd61c1c6-66ac-402b-826f-ec5b3c62aea3/project/c1df6061-db51-40bf-9aa3-3404cf4d8ac9.svg?style=for-the-badge)](https://wakatime.com/badge/user/dd61c1c6-66ac-402b-826f-ec5b3c62aea3/project/c1df6061-db51-40bf-9aa3-3404cf4d8ac9)
 
+[![DeepSource](https://deepsource.io/gh/Averyyyyyyyy/Avussy.cc.svg/?label=active+issues&show_trend=true&token=MRcUfe-GIfocG-JOxdh7C7qB)](https://deepsource.io/gh/Averyyyyyyyy/Avussy.cc/?ref=repository-badge)
+
 ---
 
 ## Setup
