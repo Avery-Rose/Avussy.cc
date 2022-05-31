@@ -1,6 +1,16 @@
 {
   "recommendations": [
     "ritwickdey.live-sass",
-    "planbcoding.vscode-react-refactor"
+    "planbcoding.vscode-react-refactor",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "usernamehw.errorlens",
+    "henry-li.vscode-import-formatter",
+    "dsznajder.es7-react-js-snippets",
+    "wix.vscode-import-cost",
+    "ms-vscode.vscode-typescript-next",
+    "esbenp.prettier-vscode",
+    "syler.sass-indented"
   ]
 }

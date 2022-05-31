@@ -9,6 +9,7 @@ import { staggerContainer } from '../components/Varients';
 import AnimatedCharacters from '../components/AnimatedCharacters';
 
 import { FaGithub, FaSteam, FaTwitter, FaInstagram } from 'react-icons/fa';
+import PageContainer from '../components/PageContainer';
 
 function SocialLink({ link, children }) {
   return (
@@ -59,54 +60,44 @@ const SocialItem = (props) => {
 
 const Home = () => {
   return (
-    <motion.div className='page'>
-      <motion.div
-        className='content'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: 0.5,
+    <PageContainer>
+      <Container
+        style={{
+          paddingTop: '5rem',
         }}
       >
-        <Container
-          style={{
-            paddingTop: '5rem',
-          }}
-        >
-          <h1 className='gradient center'>Hello, my name is Avery</h1>
-          <Typography className='center'>
-            I{"'"}m currently a IT Student studying Web & Mobile Application
-            Development.
-          </Typography>
-          <Grid container spacing={3} className='socials'>
-            <SocialItem
-              icon={<FaGithub className='icon' size={32} />}
-              link={'https://github.com/Averyyyyyyyy'}
-              name='Averyyyyyyyy'
-            />
+        <h1 className='gradient center'>Hello, my name is Avery</h1>
+        <Typography className='center'>
+          I{"'"}m currently a IT Student studying Web & Mobile Application
+          Development.
+        </Typography>
+        <Grid container spacing={3} className='socials'>
+          <SocialItem
+            icon={<FaGithub className='icon' size={32} />}
+            link={'https://github.com/Averyyyyyyyy'}
+            name='Averyyyyyyyy'
+          />
 
-            <SocialItem
-              icon={<FaSteam className='icon' size={32} />}
-              link='https://steamcommunity.com/id/cummyavery/'
-              name='Avery'
-            />
+          <SocialItem
+            icon={<FaSteam className='icon' size={32} />}
+            link='https://steamcommunity.com/id/cummyavery/'
+            name='Avery'
+          />
 
-            <SocialItem
-              icon={<FaTwitter className='icon' size={32} />}
-              link='https://twitter.com/cattgirlava'
-              name='@CattGirlAva'
-            />
+          <SocialItem
+            icon={<FaTwitter className='icon' size={32} />}
+            link='https://twitter.com/cattgirlava'
+            name='@CattGirlAva'
+          />
 
-            <SocialItem
-              icon={<FaInstagram className='icon' size={32} />}
-              link='https://www.instagram.com/cattgirlava/'
-              name='@CattGirlAva'
-            />
-          </Grid>
-        </Container>
-      </motion.div>
-    </motion.div>
+          <SocialItem
+            icon={<FaInstagram className='icon' size={32} />}
+            link='https://www.instagram.com/cattgirlava/'
+            name='@CattGirlAva'
+          />
+        </Grid>
+      </Container>
+    </PageContainer>
   );
 };
 
