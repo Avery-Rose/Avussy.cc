@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 import { Fab } from '@mui/material';
 
 export function ScrollTop(props) {
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   return (
     <motion.div
       className='scroll-top'
-      onClick={() => {
-        window.scrollTo(0, 0);
-      }}
+      onClick={scrollToTop}
       initial={{
         scale: 0,
       }}

@@ -26,11 +26,14 @@ const SocialItem = (props) => {
 
   const placeholderText = [{ type: 'heading2', text: props.name }];
 
+  const handleHoverStart = () => setHover(true);
+  const handleHoverEnd = () => setHover(false);
+
   return (
     <SocialLink link={props.link}>
       <motion.div
-        onHoverStart={() => setHover(true)}
-        onHoverEnd={() => setHover(false)}
+        onHoverStart={handleHoverStart}
+        onHoverEnd={handleHoverEnd}
         style={{
           display: 'flex',
           alignItems: 'center',
