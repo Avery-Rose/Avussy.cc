@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
-import { Grid, Typography } from '@mui/material';
-import { Container } from '@mui/material';
+import { Grid, Typography, Container } from '@mui/material';
 
 import { staggerContainer } from '../components/Varients';
 
