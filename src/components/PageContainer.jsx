@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const PageContainer = ({ props, children }) => {
+const PageContainer = ({ children }) => {
   return (
     <motion.div className='page'>
       <motion.div
