@@ -1,8 +1,8 @@
 import React from 'react';
 import { BurgerMenu } from './BurgerMenu';
 import { motion } from 'framer-motion';
-import { NavItem } from './NavItem';
 import { menu } from './Varients';
+import { generateLinks, links } from './links';
 
 const NavProvider = (props) => {
   return (
@@ -22,9 +22,7 @@ const NavProvider = (props) => {
           animate={'visible'}
           exit={'hidden'}
         >
-          <NavItem to='/'>Home</NavItem>
-          <NavItem to='/trans'>Trans</NavItem>
-          <NavItem to='/dataset'>Profanity</NavItem>
+          {generateLinks(links, props.isMobile)}
         </motion.ul>
       )}
     </>
@@ -32,26 +30,3 @@ const NavProvider = (props) => {
 };
 
 export default NavProvider;
-
-// {!isMobile && (
-//   <motion.ul
-//     className='nav-items'
-//     variants={menu}
-//     initial='hidden'
-//     animate={'visible'}
-//     exit={'hidden'}
-//   >
-//     <NavItem to='/'>Home</NavItem>
-//     <NavItem to='/trans'>Trans</NavItem>
-//     <NavItem to='/dataset'>Profanity</NavItem>
-//   </motion.ul>
-// )}
-
-// {isMobile && (
-//   <BurgerMenu
-//     isOpen={isOpen}
-//     setIsOpen={setIsOpen}
-//     burgerHover={burgerHover}
-//     setBurgerHover={setBurgerHover}
-//   ></BurgerMenu>
-// )}

@@ -7,12 +7,6 @@ export const NavItem = ({ children, to, isMobile }) => {
   return (
     <motion.div
       variants={isMobile ? mobileItem : desktopItem}
-      whileHover={{
-        scale: 1.1,
-        transition: {
-          duration: 0.2,
-        },
-      }}
       whileTap={{
         scale: 0.9,
         transition: {

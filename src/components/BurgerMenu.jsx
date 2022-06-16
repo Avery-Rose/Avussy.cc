@@ -77,20 +77,17 @@ function BottomLine(props) {
 }
 
 export function BurgerMenu(props) {
-  function toggleBurger() {
-    props.setIsOpen(!props.isOpen);
-  }
+  const toggleBurger = () => props.setIsOpen(!props.isOpen);
+
+  const handleMouseEnter = () => props.setBurgerHover(true);
+  const handleMouseLeave = () => props.setBurgerHover(false);
 
   return (
     <div
       className='burger'
       onClick={toggleBurger}
-      onMouseEnter={() => {
-        props.setBurgerHover(true);
-      }}
-      onMouseLeave={() => {
-        props.setBurgerHover(false);
-      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className='lines'>
         <TopLine isOpen={props.isOpen} burgerHover={props.burgerHover} />

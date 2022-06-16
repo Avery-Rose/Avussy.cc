@@ -60,7 +60,7 @@ $navbackground: #1a1a1a;
     padding: 0 20px;
     z-index: 100;
     font-size: 1.2rem;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     font-weight: 700;
     color: $text;
     text-decoration: none;
@@ -129,7 +129,7 @@ $navbackground: #1a1a1a;
   height: 50px;
 
   .scroll-top-icon {
-    filter: drop-shadow(0 0 5px rgb(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 
     width: 100%;
     height: 100%;
