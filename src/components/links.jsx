@@ -4,7 +4,7 @@ import { NavItem } from './NavItem';
 export const links = [
   { name: 'Home', path: '/' },
   { name: 'Trans', path: '/trans' },
-  { name: 'Guide', path: '/guide' },
+  { name: 'Voice', path: '/voice' },
 ];
 export const generateLinks = (links, isMobile) =>
   links.map((link) => (

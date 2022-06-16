@@ -36,6 +36,12 @@ const AnimatedCharacters = (props) => {
       color: '#ff8df4',
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
     },
+    pressed: {
+      y: '100%',
+      rotate: 15,
+      color: '#ffd5fb',
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+    },
   };
 
   //  Split each word of props.text into an array

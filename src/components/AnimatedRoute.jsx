@@ -8,7 +8,7 @@ import Navbar from './NavBar';
 import Home from '../pages/Home';
 import Trans from '../pages/Trans';
 import NotFound from '../pages/NotFound';
-import Guide from '../pages/Guide';
+import Voice from '../pages/Voice';
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -37,11 +37,11 @@ const AnimatedRoute = () => {
             }
           />
           <Route
-            path='guide'
+            path='voice'
             element={
               <>
                 <Navbar />
-                <Guide />
+                <Voice />
               </>
             }
           />

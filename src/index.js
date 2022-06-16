@@ -13,6 +13,21 @@ import {
 } from '@mui/material/styles';
 
 const darkTheme = createTheme({
+  typography: {
+    fontFamily: [
+      'Raleway',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      '"Open Sans"',
+      '"Helvetica Neue"',
+      'sans-serif',
+    ],
+  },
   palette: {
     mode: 'dark',
     primary: {

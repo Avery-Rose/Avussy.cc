@@ -30,26 +30,3 @@ const NavProvider = (props) => {
 };
 
 export default NavProvider;
-
-// {!isMobile && (
-//   <motion.ul
-//     className='nav-items'
-//     variants={menu}
-//     initial='hidden'
-//     animate={'visible'}
-//     exit={'hidden'}
-//   >
-//     <NavItem to='/'>Home</NavItem>
-//     <NavItem to='/trans'>Trans</NavItem>
-//     <NavItem to='/dataset'>Profanity</NavItem>
-//   </motion.ul>
-// )}
-
-// {isMobile && (
-//   <BurgerMenu
-//     isOpen={isOpen}
-//     setIsOpen={setIsOpen}
-//     burgerHover={burgerHover}
-//     setBurgerHover={setBurgerHover}
-//   ></BurgerMenu>
-// )}
