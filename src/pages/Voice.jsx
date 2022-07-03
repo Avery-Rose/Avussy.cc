@@ -8,7 +8,9 @@ const Voice = () => {
     {
       label: 'The Rainbow Passage',
       content: (
-        <div>
+        <div style={{
+          width: '80vw',
+        }}>
           <Typography variant='body1' gutterBottom component='div'>
             When sunlight strikes raindrops in the air, they act like a prism
             and form a rainbow. The rainbow is a division of white light into
@@ -63,7 +65,9 @@ const Voice = () => {
     {
       label: 'The Grandfather Passage',
       content: (
-        <div>
+        <div style={{
+          width: '80vw',
+        }}>
           <Typography variant='body1' gutterBottom component='div'>
             You wished to know all about my grandfather. Well, he is nearly
             ninety-three years old. He dresses himself in an ancient black frock
@@ -84,11 +88,10 @@ const Voice = () => {
       label: 'Sun and Moon',
       content: (
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+        style={{
+          width: '80vw',
+          textAlign: 'center'
+        }}
         >
           <Typography variant='body1' component='div'>
             Come driving rain or winds that churn
