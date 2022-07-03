@@ -145,9 +145,9 @@ const Voice = () => {
       >
         Voice Training Scripts
       </Typography>
-      <div style={{ paddingBottom: '10px' }}></div>
+      <div style={{ paddingBottom: '10px' }} />
       <TabProvider tabs={tabs} />
-      <div style={{ paddingBottom: '75px' }}></div>
+      <div style={{ paddingBottom: '75px' }} />
     </PageContainer>
   );
 };
