@@ -1,0 +1,19 @@
+.link-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .link-group {
+    flex-direction: column;
+  }
+  .link-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+} /*# sourceMappingURL=linkGroup.css.map */

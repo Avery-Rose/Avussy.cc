@@ -60,5 +60,6 @@
   "editor.lineHeight": 0,
   "editor.renderLineHighlight": "line",
   "html.format.wrapLineLength": 80,
-  "dart.autoImportCompletions": true
+  "dart.autoImportCompletions": true,
+  "deepscan.enable": true
 }
