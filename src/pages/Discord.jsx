@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Text } from '@nextui-org/react';
 
 const Discord = () => {
   const redirect = () => {
@@ -22,7 +22,7 @@ const Discord = () => {
         gap: '1rem',
       }}
     >
-      <Typography>Redirecting...</Typography>
+      <Text>Redirecting...</Text>
     </div>
   );
 };
