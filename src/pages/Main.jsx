@@ -3,19 +3,11 @@ import React from 'react';
 import { Text } from '@nextui-org/react';
 import { LinkGroup } from '../components/LinkGroup';
 
+import '../styles/Main.css';
+
 const Main = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        width: '100vw',
-        gap: '1rem',
-      }}
-    >
+    <div className='container'>
       <Text
         h1
         style={{
