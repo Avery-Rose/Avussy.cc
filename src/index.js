@@ -7,6 +7,8 @@ import Main from './pages/Main';
 import Discord from './pages/Discord';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import './styles/index.css';
+
 const lightTheme = createTheme({
   type: 'light',
   theme: {
@@ -28,7 +30,7 @@ const darkTheme = createTheme({
     colors: {
       primary: '#ff8df4',
       link: '#ff8df4',
-      background: '#303030',
+      background: '#202020',
     },
     fonts: {
       primary: 'Raleway',

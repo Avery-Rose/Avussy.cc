@@ -120,8 +120,6 @@ export const LinkGroup = () => {
       >
         <Link
           href='https://discord.gg/TzAZUDqfXh'
-          target='_blank'
-          rel='noreferrer'
           className='link-item'
           color='primary'
         >
