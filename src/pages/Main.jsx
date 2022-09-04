@@ -49,6 +49,7 @@ const Main = () => {
             position: 'absolute',
             bottom: '0px',
           }}
+          className='no-mobile-display'
         />
       </section>
       <section id='discord'>

@@ -14,7 +14,14 @@ section {
   justify-content: center;
 }
 
+.no-mobile-display {
+  display: block;
+}
+
 @media (max-width: 575.98px) {
+  .no-mobile-display {
+    display: none;
+  }
   .container {
     -ms-scroll-snap-type: y mandatory;
     scroll-snap-type: y mandatory;

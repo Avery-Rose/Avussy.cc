@@ -16,8 +16,16 @@ section {
   justify-content: center;
 }
 
+.no-mobile-display {
+  display: block;
+}
+
 // extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
+  .no-mobile-display {
+    display: none;
+  }
+
   .container {
     scroll-snap-type: y mandatory; // vertical scroll snapping
     overflow-y: scroll; // vertical scroll
