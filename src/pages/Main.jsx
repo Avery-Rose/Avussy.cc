@@ -20,12 +20,22 @@ import { FiChevronDown } from 'react-icons/fi';
 
 const Main = () => {
   const [result, setResult] = React.useState(null);
-  React.useEffect(() => {
+
+  const fetchData = () => {
     fetch('https://discord.com/api/guilds/1006583002517745674/widget.json')
       .then((res) => res.json())
       .then((data) => {
         setResult(data);
       });
+  };
+
+  React.useEffect(() => {
+    // refresh every 5 minutes
+    const interval = setInterval(() => {
+      fetchData();
+    }, 300000);
+    fetchData();
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -150,7 +160,17 @@ const Main = () => {
               </Button>
             </>
           ) : (
-            <Loading />
+            <Container
+              css={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <Loading />
+              <Text h3>Fetching Discord Data</Text>
+            </Container>
           )}
         </Container>
       </section>
