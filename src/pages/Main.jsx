@@ -28,8 +28,11 @@ const Main = () => {
   const [result, setResult] = React.useState(null);
   const { setTheme } = useNextTheme();
 
+  const guildID = '1006583002517745674';
+  const url = `https://discord.com/api/guilds/${guildID}/widget.json`;
+
   const fetchData = () => {
-    fetch('https://discord.com/api/guilds/1006583002517745674/widget.json')
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setResult(data);
@@ -41,9 +44,36 @@ const Main = () => {
     const interval = setInterval(() => {
       fetchData();
     }, 300000);
+
     fetchData();
+
     return () => clearInterval(interval);
   }, []);
+
+  // observer
+
+  React.useEffect(() => {
+    const members = document.querySelectorAll('.member');
+    const intersectionCallback = (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
+      });
+    };
+    const options = {
+      threshold: 1,
+    };
+    const observer = new IntersectionObserver(intersectionCallback, options);
+
+    members.forEach((member) => {
+      observer.observe(member);
+    });
+
+    return () => {
+      members.forEach((member) => {
+        observer.unobserve(member);
+      });
+    };
+  }, [result]);
 
   return (
     <div className='container'>
@@ -131,16 +161,7 @@ const Main = () => {
                   Online Members
                 </Text>
               </Grid.Container>
-              <Grid.Container
-                gap={2}
-                css={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  maxWidth: '50vw',
-                }}
-              >
+              <Grid.Container gap={2} className='members'>
                 {result.members
                   .sort((a, b) => a.username.localeCompare(b.username))
                   .map((member) => {
@@ -150,6 +171,8 @@ const Main = () => {
                     if (member.status === 'dnd') statusColor = 'error';
                     return (
                       <Tooltip
+                        className='member'
+                        id={member.id}
                         key={member.id}
                         content={
                           <Grid.Container>
@@ -166,17 +189,31 @@ const Main = () => {
                           color={statusColor}
                           bordered
                           css={{
-                            margin: '0.5rem',
                             transition: 'all 0.1s ease-in-out',
-                            '&:hover': {
-                              cursor: 'pointer',
-                              filter: 'brightness(0.8)',
-                            },
                           }}
                         />
                       </Tooltip>
                     );
                   })}
+                {
+                  // checking presence_count and subtracting the length of the members array
+                  result.presence_count - result.members.length > 0 && (
+                    // if the difference is greater than 99 then display 99+ else display the difference
+                    <div className='member'>
+                      <Avatar
+                        text={
+                          result.presence_count - result.members.length > 99
+                            ? '99+'
+                            : result.presence_count - result.members.length
+                        }
+                        size='lg'
+                        css={{
+                          opacity: '1 !important',
+                        }}
+                      />
+                    </div>
+                  )
+                }
               </Grid.Container>
               <Grid.Container
                 css={{
