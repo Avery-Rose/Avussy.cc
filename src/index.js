@@ -16,6 +16,12 @@ const lightTheme = createTheme({
       primary: '#8C30FF',
       link: '#8C30FF',
 
+      primaryBorder: '#8C30FF',
+      primaryBorderHover: '#8C30FF',
+      primarySolidHover: '#AF6DFF',
+      primarySolidContrast: '#FFFFFF',
+      primaryShadow: '#8C30FF',
+
       background: '#f0f0f0',
     },
     fonts: {
@@ -30,6 +36,13 @@ const darkTheme = createTheme({
     colors: {
       primary: '#ff8df4',
       link: '#ff8df4',
+
+      primaryBorder: '#ff8df4',
+      primaryBorderHover: '#ff8df4',
+      primarySolidHover: '#FFA8F6',
+      primarySolidContrast: '#FFFFFF',
+      primaryShadow: '#9B4C93',
+
       background: '#202020',
     },
     fonts: {
@@ -42,7 +55,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <NextThemesProvider
-    defaultTheme='system'
+    defaultTheme='dark'
     attribute='class'
     value={{
       light: lightTheme.className,

@@ -8,7 +8,8 @@ import {
   Container,
   Grid,
   Tooltip,
-  Button,
+  Link,
+  Spacer,
 } from '@nextui-org/react';
 import { LinkGroup } from '../components/LinkGroup';
 
@@ -16,10 +17,16 @@ import '../styles/Main.css';
 
 import fetch from 'node-fetch';
 
-import { FiChevronDown } from 'react-icons/fi';
+import { Switch } from '@nextui-org/react';
+
+import { SunIcon } from '../components/icons/SunIcon';
+import { MoonIcon } from '../components/icons/MoonIcon';
+
+import { useTheme as useNextTheme } from 'next-themes';
 
 const Main = () => {
   const [result, setResult] = React.useState(null);
+  const { setTheme } = useNextTheme();
 
   const fetchData = () => {
     fetch('https://discord.com/api/guilds/1006583002517745674/widget.json')
@@ -41,6 +48,24 @@ const Main = () => {
   return (
     <div className='container'>
       <section id='main'>
+        <Switch
+          color='primary'
+          shadow
+          iconOn={<SunIcon filled />}
+          iconOff={<MoonIcon filled />}
+          onChange={(e) => {
+            const theme = e.target.checked ? 'light' : 'dark';
+            setTheme(theme);
+            localStorage.setItem('theme', theme);
+          }}
+          initialChecked={localStorage.getItem('theme') === 'light'}
+          css={{
+            zIndex: 999,
+            position: 'fixed',
+            right: '1rem',
+            top: '1rem',
+          }}
+        />
         <Text
           h1
           style={{
@@ -52,15 +77,6 @@ const Main = () => {
         </Text>
 
         <LinkGroup />
-
-        <FiChevronDown
-          size={50}
-          style={{
-            position: 'absolute',
-            bottom: '0px',
-          }}
-          className='no-mobile-display'
-        />
       </section>
       <section id='discord'>
         <Container
@@ -88,7 +104,14 @@ const Main = () => {
                   alignItems: 'center',
                 }}
               >
-                <Text h2>{result.name}</Text>
+                <Text
+                  h2
+                  css={{
+                    textAlign: 'center',
+                  }}
+                >
+                  {result.name}
+                </Text>
               </Grid.Container>
               <Grid.Container
                 gap={2}
@@ -99,7 +122,14 @@ const Main = () => {
                   alignItems: 'center',
                 }}
               >
-                <Text h3>Online Members</Text>
+                <Text
+                  h3
+                  css={{
+                    textAlign: 'center',
+                  }}
+                >
+                  Online Members
+                </Text>
               </Grid.Container>
               <Grid.Container
                 gap={2}
@@ -108,6 +138,7 @@ const Main = () => {
                   flexWrap: 'wrap',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  maxWidth: '50vw',
                 }}
               >
                 {result.members
@@ -119,7 +150,7 @@ const Main = () => {
                     if (member.status === 'dnd') statusColor = 'error';
                     return (
                       <Tooltip
-                        key={'tooltip_' + member.id}
+                        key={member.id}
                         content={
                           <Grid.Container>
                             <Row>
@@ -147,17 +178,21 @@ const Main = () => {
                     );
                   })}
               </Grid.Container>
-              <Button
-                disabled={result.instant_invite === null}
-                onClick={() => {
-                  window.open(result.instant_invite);
-                }}
+              <Grid.Container
                 css={{
-                  marginTop: '1rem',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                JOIN
-              </Button>
+                <Link
+                  isExternal
+                  href={result.instant_invite}
+                  css={{ padding: '1rem' }}
+                >
+                  JOIN
+                </Link>
+              </Grid.Container>
             </>
           ) : (
             <Container
@@ -169,7 +204,8 @@ const Main = () => {
               }}
             >
               <Loading />
-              <Text h3>Fetching Discord Data</Text>
+              <Spacer />
+              <Text h3>Fetching Discord Data...</Text>
             </Container>
           )}
         </Container>

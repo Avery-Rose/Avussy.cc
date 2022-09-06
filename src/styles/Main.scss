@@ -27,12 +27,12 @@ section {
   }
 
   .container {
-    scroll-snap-type: y mandatory; // vertical scroll snapping
+    // scroll-snap-type: y mandatory; // vertical scroll snapping
     overflow-y: scroll; // vertical scroll
     overflow-x: hidden;
   }
   section {
-    scroll-snap-align: start; // where to snap
+    // scroll-snap-align: start; // where to snap
     flex-direction: column;
 
     height: 100vh;
