@@ -1,11 +1,6 @@
-.container {
-  height: 100vh;
-  width: 100vw;
-}
-
 section {
-  height: 100vh;
-  width: 100vw;
+  min-height: 80vh;
+  min-width: 80vw;
   max-width: 100vw;
   max-height: 100vh;
   display: flex;
@@ -24,8 +19,6 @@ section {
   }
   section {
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +27,7 @@ section {
 }
 .member {
   opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-out;
   margin: 0.5rem;
 }
 .member :hover {
@@ -58,6 +51,11 @@ section {
   }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .members {
+    max-width: 100vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
   .members {
     max-width: 100vw;
   }

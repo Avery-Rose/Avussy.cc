@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom/client';
 
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import Main from './pages/Main';
-import Discord from './pages/Discord';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './styles/index.css';
+import Router from './components/Router';
+import { BrowserRouter } from 'react-router-dom';
 
 const lightTheme = createTheme({
   type: 'light',
@@ -63,15 +62,9 @@ root.render(
     }}
   >
     <NextUIProvider>
-      <Router>
-        <Routes>
-          {/* <Main /> */}
-          <Route exact path='/' element={<Main />} />
-          <Route path='/discord' element={<Discord />} />
-          <Route path='/invite' element={<Discord />} />
-          <Route path='/404' element={{}} />
-        </Routes>
-      </Router>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </NextUIProvider>
   </NextThemesProvider>
 );

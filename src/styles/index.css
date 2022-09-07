@@ -8,11 +8,6 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-html {
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-}
-
 * {
   -webkit-overflow-scrolling: touch;
 } /*# sourceMappingURL=index.css.map */

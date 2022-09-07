@@ -2,13 +2,22 @@ import React from 'react';
 import { Text } from '@nextui-org/react';
 
 const Discord = () => {
-  const redirect = () => {
-    document.location.href = 'https://discord.gg/TzAZUDqfXh';
-  };
+  const [inviteLink, setInviteLink] = React.useState(null);
+
+  const guildID = '1006583002517745674';
+  const url = `https://discord.com/api/guilds/${guildID}/widget.json`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      setInviteLink(data.instant_invite);
+    });
 
   React.useEffect(() => {
-    redirect();
-  }, []);
+    if (inviteLink) {
+      window.location.href = inviteLink;
+    }
+  }, [inviteLink]);
 
   return (
     <div
