@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Text } from '@nextui-org/react';
+import { Container, Text } from '@nextui-org/react';
 
 export const TimeCard = (props) => {
   const { title, date, description } = props;
@@ -15,7 +15,7 @@ export const TimeCard = (props) => {
         <Text h3>{title}</Text>
       </div>
       <div className='timeline__card__divider' />
-      <div className='timeline__card__body' css={{ py: '$10' }}>
+      <div className='timeline__card__body'>
         <Text>{date}</Text>
         <Text>{description}</Text>
       </div>
