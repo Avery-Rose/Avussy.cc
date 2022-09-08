@@ -90,6 +90,7 @@ const Home = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'center',
                 alignItems: 'center',
+                flexDirection: 'column',
               }}
             >
               <Text
@@ -110,6 +111,7 @@ const Home = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'center',
                 alignItems: 'center',
+                flexDirection: 'column',
               }}
             >
               <Text
@@ -121,8 +123,19 @@ const Home = () => {
                 Online Members
               </Text>
             </Grid.Container>
-            <Members result={result}></Members>
-            <Spacer y={2} />
+            <Grid.Container
+              css={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <Members result={result}></Members>
+              <Spacer y={1} />
+              <Link href={result.instant_invite}>JOIN</Link>
+            </Grid.Container>
           </>
         ) : (
           <Container
