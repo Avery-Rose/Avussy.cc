@@ -1,6 +1,11 @@
 {
   "name": "avussy.cc",
   "private": true,
+  "author": {
+    "name": "Avery Rose Doucet",
+    "email": "avery.doucet@icloud.com",
+    "url": "https://avussy.cc/"
+  },
   "main": "./src/index.js",
   "scripts": {
     "build": "yarn run lint && react-scripts build",
