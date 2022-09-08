@@ -10,4 +10,11 @@
 
 * {
   -webkit-overflow-scrolling: touch;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 } /*# sourceMappingURL=index.css.map */

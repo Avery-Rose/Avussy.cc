@@ -1,0 +1,58 @@
+.timeline {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // gap between flex items
+  & > * + * {
+    margin-top: 20px;
+  }
+
+  .timeline__card {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 0 20px;
+      background-color: var(--nextui-colors-backgroundContrast);
+      color: var(--nextui-colors-text);
+      border-radius: 10px 10px 0 0;
+    }
+
+    &__divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--nextui-colors-text);
+    }
+
+    &__body {
+      padding: 20px;
+      background-color: var(--nextui-colors-backgroundContrast);
+      color: var(--nextui-colors-text);
+      border-radius: 0 0 10px 10px;
+    }
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.animate-out {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    min-width: 400px;
+  }
+
+  position: relative;
+}
+
+// background-color: var(--nextui-colors-primary);
+
+.content {
+  padding-bottom: 20px;
+}

@@ -18,3 +18,13 @@
 * {
   -webkit-overflow-scrolling: touch;
 }
+
+// Global styles
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}

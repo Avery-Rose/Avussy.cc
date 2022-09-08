@@ -3,7 +3,6 @@ import { Text, Row, Avatar, Grid, Tooltip, Badge } from '@nextui-org/react';
 
 const Member = (props) => {
   const { username, avatar, status, id } = props;
-  console.log(props);
   if (!username || !avatar || !status) return null;
 
   let statusColor;
@@ -83,8 +82,6 @@ const MembersOverflows = (props) => {
 
   const displayedOverflow =
     memberCountOverflow > 99 ? '99+' : `+${memberCountOverflow}`;
-
-  console.log('displayedOverflow', displayedOverflow);
 
   if (memberCountOverflow > 0)
     return (
