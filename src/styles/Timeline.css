@@ -42,6 +42,9 @@
     margin: 0 auto;
   }
 }
+.timeline .timeline__card__body svg path {
+  fill: var(--nextui-colors-text);
+}
 .timeline .timeline__card__body__text {
   color: var(--nextui-colors-text);
   width: 100%;
@@ -62,8 +65,4 @@
 
 .content {
   padding-bottom: 20px;
-}
-
-svg path {
-  fill: var(--nextui-colors-text);
 } /*# sourceMappingURL=Timeline.css.map */
