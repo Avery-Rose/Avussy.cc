@@ -2,7 +2,9 @@ import React from 'react';
 import { Container, Text } from '@nextui-org/react';
 
 export const TimeCard = (props) => {
-  const { title, date, description } = props;
+  const { title, date, description, image } = props;
+
+  // add class name to image component
 
   return (
     <Container
@@ -16,8 +18,11 @@ export const TimeCard = (props) => {
       </div>
       <div className='timeline__card__divider' />
       <div className='timeline__card__body'>
-        <Text>{date}</Text>
-        <Text>{description}</Text>
+        <div className='timeline__card__body__text'>
+          <Text>{date}</Text>
+          <Text>{description}</Text>
+        </div>
+        {image}
       </div>
     </Container>
   );

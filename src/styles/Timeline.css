@@ -30,8 +30,26 @@
 .timeline .timeline__card__body {
   padding: 20px;
   background-color: var(--nextui-colors-backgroundContrast);
-  color: var(--nextui-colors-text);
   border-radius: 0 0 10px 10px;
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  .timeline .timeline__card__body {
+    flex-direction: column;
+  }
+  .timeline .timeline__card__body svg {
+    margin: 20 0;
+    margin: 0 auto;
+  }
+}
+.timeline .timeline__card__body__text {
+  color: var(--nextui-colors-text);
+  width: 100%;
+  margin: 0;
+}
+.timeline .timeline__card__body svg {
+  color: var(--nextui-colors-text);
+  width: 50%;
 }
 .timeline .timeline__card.animate-in {
   opacity: 1;
@@ -44,4 +62,8 @@
 
 .content {
   padding-bottom: 20px;
+}
+
+svg path {
+  fill: var(--nextui-colors-text);
 } /*# sourceMappingURL=Timeline.css.map */
