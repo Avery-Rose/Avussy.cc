@@ -4,7 +4,11 @@ import '../styles/Timeline.css';
 import { TimeCard } from '../components/TimeCard';
 import { timelines } from '../data/timeline';
 
+import { sortDates } from '../utils/sortDate';
+
 const GetTimeline = () => {
+  const sortedTimeline = sortDates(timelines);
+
   React.useEffect(() => {
     const cards = document.querySelectorAll('.timeline__card');
 
@@ -37,13 +41,14 @@ const GetTimeline = () => {
 
   return (
     <>
-      {timelines.map((timeline, i) => {
+      {sortedTimeline.map((timeline, index) => {
         return (
           <TimeCard
-            key={i}
+            key={index}
             title={timeline.title}
-            date={timeline.date}
             description={timeline.description}
+            date={timeline.date}
+            image={timeline.image}
           />
         );
       })}
