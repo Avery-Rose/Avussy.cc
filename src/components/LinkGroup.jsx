@@ -39,7 +39,7 @@ export const LinkGroup = () => {
         color='default'
       >
         <Link
-          href='https://github.com/Averyyyyyyyy'
+          href='https://github.com/Avery-Rose'
           target='_blank'
           rel='noreferrer'
           className='link-item'
